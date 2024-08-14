@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full w-full">
 	<head>
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,10 +17,11 @@
 	</head>
 
 
-	<body class="bg-black">
+	<body class="bg-white text-gray-900 antialiased leading-normal flex flex-col h-full w-full">
 
-
-		<div class="">
+		@include('partials.navbar')
+		
+		<div class="flex flex-col h-full w-full">
 
 			@if(isset($slot))
 				{{ $slot }}
@@ -32,6 +33,6 @@
 
 		@stack('scripts')
 
-
+		
 	</body>
 </html>
