@@ -1,14 +1,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	darkMode: false,
+	darkMode: 'class',
+	mode:'jit',
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
         './resources/**/*.md',
         './resources/views/vendor/**/*.blade.php',
 		'./vendor/electrik/slate/resources/views/components/**/*.blade.php',
@@ -17,6 +18,7 @@ module.exports = {
 		'./vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
 		'./vendor/wire-elements/modal/resources/views/**/*.blade.php',
 		'./vendor/electrik/electrik/resources/**/*.blade.php',
+		'./vendor/electrik/slate/resources/**/*.blade.php',
     ],
 
     theme: {

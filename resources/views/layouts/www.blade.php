@@ -24,7 +24,7 @@
 		<div class="flex flex-col h-full w-full">
 
 			@if(isset($slot))
-				{{ $slot }}
+				{!! $slot !!}
 			@else
 				@yield('content')
 			@endif

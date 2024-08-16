@@ -41,14 +41,17 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
 
 })->where('slug', '.*')->name('docs.show');
 
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('{slug?}', function ($slug = null) {
+
     if(!$slug) $slug = 'index';
-    $markdown = File::get(resource_path("content/www/{$slug}.md"));
-    $bladeRenderedContent = Blade::render($markdown);
-    $bladeRenderedContent = View::make('layouts.renderers.html', ['content' => $bladeRenderedContent])->render();
 
-    $converter = new CommonMarkConverter(['html_input' => 'allow']);
-    $html = $converter->convert($bladeRenderedContent);
+    View::addLocation(resource_path('content/www'));
+    
+    return view($slug);
 
-    return view('www.show', compact('html'));
-});
+})->where('slug', '.*')->name('www.show');

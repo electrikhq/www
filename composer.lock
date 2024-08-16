@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "74275f44c71e815b85bf7cea66e3bf98c57fb7e4"
+                "reference": "8f787baf09d88cdfd6ec4dbaba11ebfa885f0595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/74275f44c71e815b85bf7cea66e3bf98c57fb7e4",
-                "reference": "74275f44c71e815b85bf7cea66e3bf98c57fb7e4",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/8f787baf09d88cdfd6ec4dbaba11ebfa885f0595",
+                "reference": "8f787baf09d88cdfd6ec4dbaba11ebfa885f0595",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2024-07-29T21:49:30+00:00"
+            "time": "2024-08-14T14:25:11+00:00"
         },
         {
             "name": "brick/math",
@@ -665,12 +665,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/electrikhq/slate.git",
-                "reference": "5c77a20414e5de2af4f9c8b0db2f5921dacaab01"
+                "reference": "9f61417e8b52c91b47665ecc7ba1ca79f188e036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/electrikhq/slate/zipball/5c77a20414e5de2af4f9c8b0db2f5921dacaab01",
-                "reference": "5c77a20414e5de2af4f9c8b0db2f5921dacaab01",
+                "url": "https://api.github.com/repos/electrikhq/slate/zipball/9f61417e8b52c91b47665ecc7ba1ca79f188e036",
+                "reference": "9f61417e8b52c91b47665ecc7ba1ca79f188e036",
                 "shasum": ""
             },
             "require": {
@@ -709,7 +709,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-13T15:07:04+00:00"
+            "time": "2024-08-15T07:23:09+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -1648,16 +1648,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c"
+                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/ac815920de0eff6de947eac0a6a94e5ed0fb147c",
-                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
+                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
                 "shasum": ""
             },
             "require": {
@@ -1750,7 +1750,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-24T12:52:09+00:00"
+            "time": "2024-08-14T10:56:57+00:00"
         },
         {
             "name": "league/config",
