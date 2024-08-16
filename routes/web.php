@@ -67,6 +67,7 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
 
     // Return the rendered HTML to the view
     return view('layouts.documentation', [
+        'slug' => $slug,
         'html' => $renderedContent,
         'headings' => $headings,
         'version' => $version,
