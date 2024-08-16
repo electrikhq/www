@@ -53,21 +53,21 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     $description = $document->matter('description');
     $markdown = $document->body();
 
-    // Render Blade components in Markdown content
-    $bladeRenderedContent = Blade::render($markdown);
+    // Convert Markdown to HTML first
+    $htmlContent = app(MarkdownRenderer::class)->convertToHtml($markdown);
 
-    // Normalize indentation
-    $bladeRenderedContent = preg_replace('/^\s+/m', '', $bladeRenderedContent);
+    // Render any Blade components within the converted Markdown
+    $renderedContent = Blade::render($htmlContent->getContent());
 
-    // Convert the Blade-rendered content to HTML
-    $htmlContent = app(MarkdownRenderer::class)->convertToHtml($bladeRenderedContent);
+    // dd($renderedContent);
 
-    $parsedContent = generateTableOfContents($htmlContent);
+    // Generate Table of Contents from the rendered content
+    $parsedContent = generateTableOfContents($renderedContent);
     $headings = $parsedContent['headings'];
 
     // Return the rendered HTML to the view
     return view('layouts.documentation', [
-        'html' => $htmlContent,
+        'html' => $renderedContent,
         'headings' => $headings,
         'version' => $version,
         'availableVersions' => $availableVersions,
