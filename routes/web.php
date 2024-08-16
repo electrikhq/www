@@ -59,8 +59,6 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     // Render any Blade components within the converted Markdown
     $renderedContent = Blade::render($htmlContent->getContent());
 
-    // dd($renderedContent);
-
     // Generate Table of Contents from the rendered content
     $parsedContent = generateTableOfContents($renderedContent);
     $headings = $parsedContent['headings'];

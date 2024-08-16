@@ -2,80 +2,130 @@
 
 @section('content')
 
-<section class="bg-white dark:bg-gray-900 flex-col">
+<section class="bg-white dark:bg-black flex flex-col">
+    <!-- Announcement Banner -->
     <div class="my-12 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-        <a href="#"
-            class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-            role="alert">
-            <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span><span
-                class="text-sm font-medium">Electrik has a new home! Read more</span>
-            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"></path>
-            </svg>
+        <a href="#" class="inline-flex items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
+            <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span>
+            <span class="text-sm font-medium">Electrik has a new home! Read more</span>
+            <x-slate::icon icon="carbon-chevron-right" size="sm" />
         </a>
-        <h1
-            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            Your Next big SaaS starts here</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Electrik is a
-            free and open-source Laravel starter-kit that gives you everything you need to start building a SaaS
-            product.</p>
+        
+        <!-- Hero Section -->
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+            Your Next Big SaaS Starts Here
+        </h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400 lg:text-xl sm:px-16 xl:px-48">
+            Electrik is a free and open-source Laravel starter-kit that gives you everything you need to start building a SaaS product.
+        </p>
         <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <x-slate::button color="black" href="{{ url('docs/slate/master') }}">Documentation</x-slate::button>
-            <x-slate::button color="black" icon="carbon-logo-github" link="{{ url('/docs') }}">Github</x-slate::button>
+            <x-slate::button color="black" icon="carbon-logo-github" link="https://github.com/electrikhq/electrik">Github</x-slate::button>
         </div>
     </div>
-    <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 prose-lg font-serif text-black">
+</section>
+
+<section class="bg-white dark:bg-black flex flex-col">
+    <!-- Introduction Section -->
+    <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 prose-lg font-serif text-black dark:text-white">
         <h2>Why Another Laravel Starter Kit?</h2>
         <p>It's true that there are a lot of Laravel SaaS starter kits available on the Internet and they are bloody good too. What breaks my heart is that almost every of these SaaS starter kits has two versions, one free, and one paid. These kits in their free versions, provide the bare minimum features. Some would lock billing as a paid feature and others would block team management as a paid feature. In my view, this is exactly what OSS philosophy is not. I am not at all saying that they should not charge for their creations. What I am saying is that there should be an open-source, 100% free, and full-featured alternative also available for people to choose from. My intention is just that.</p>
         <p>Electrik provides all the core features that are required for any SaaS. For example, it supports recurring billing via cashier, multiple teams, User configurable roles and permissions, and much much more.</p>
+        <p>- Neeraj Kumar</p>
     </div>
-    <div class="grid grid-cols-2 gap-4 p-4 items-center py-6">
-        <div class="col-span-1 p-12">
-            <h2>Work with tools you already use</h2>
-            <p class="mt-4 text-lg">Electrik is built on top of tools we all love: Laravel, Livewire, TailwindCSS, Alpinejs, Slate. It’ll accelerate critical development time.</p>
-            <ul class="mt-4 list-disc list-inside space-y-1" >
+</section>
+
+<section class="bg-white dark:bg-black flex flex-col">
+    <!-- Features Section 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 items-center py-24">
+        <div class="p-12 text-black dark:text-white">
+            <h2>Work with Tools You Already Use</h2>
+            <p class="mt-4 text-lg">Electrik is built on top of popular tools like Laravel, Livewire, TailwindCSS, Alpine.js, and Slate, accelerating critical development time.</p>
+            <ul class="mt-4 list-disc list-inside space-y-1">
                 <li>Laravel</li>
                 <li>Livewire</li>
                 <li>TailwindCSS</li>
                 <li>Electrik/Slate</li>
                 <li>Spatie Permissions</li>
-                <li>and more...</li>
+                <li>And more...</li>
             </ul>
-            <p class="mt-4">Electrik is a perfect, battle-tested SaaS starter kit for your next big idea.</p>
+            <p class="mt-4">Electrik is the perfect, battle-tested SaaS starter kit for your next big idea.</p>
             <x-slate::button class="mt-4" icon="carbon-arrow-right" icon-position="after" href="https://docs.electrik.dev" target="_blank">Documentation</x-slate::button>
         </div>
         <div class="col-span-1">
-            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-dashboard.png" />
+            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-dashboard.png" alt="Electrik Dashboard" class="w-full h-auto rounded-md shadow-md" />
         </div>
     </div>
-    <div class="grid grid-cols-2 gap-4 p-4 items-center py-6">
+</section>
+
+<section class="bg-white dark:bg-black flex flex-col">
+    <!-- Features Section 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 items-center py-24">
         <div class="col-span-1">
-            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-onboarding.png" />
+            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-onboarding.png" alt="Electrik Onboarding" class="w-full h-auto rounded-md shadow-md" />
         </div>
-        <div class="col-span-1 p-12">
-            <h2>All the features in one library</h2>
-            <p class="mt-4 text-lg">We believe the open-source projects should be truly open-source. None of the features should be blocked behind a pay-wall. Electrik provides all the essential features required to build you next big SaaS.</p>
-            <ul class="mt-4 list-disc list-inside space-y-1" >
-                <lli>Subscription billing management (via Stripe)</li>
-                <lli>Team management</li>
-                <lli>Roles and permissions</li>
-                <lli>Zero config installation (well almost :))</li>
-                <lli>In-built support for dark mode</li>
-                <lli>Notifications, Toasts, alerts, modals, and much more.</li>
+        <div class="p-12 text-black dark:text-white">
+            <h2>All the Features in One Library</h2>
+            <p class="mt-4 text-lg">We believe open-source projects should be truly open-source, with no features locked behind a paywall. Electrik provides all the essential features required to build your next big SaaS.</p>
+            <ul class="mt-4 list-disc list-inside space-y-1">
+                <li>Subscription billing management (via Stripe)</li>
+                <li>Team management</li>
+                <li>Roles and permissions</li>
+                <li>Zero-config installation (well, almost!)</li>
+                <li>In-built support for dark mode</li>
+                <li>Notifications, toasts, alerts, modals, and much more.</li>
             </ul>
             <p class="mt-4">To see the full list of available features, please check out the documentation.</p>
             <x-slate::button class="mt-4" icon="carbon-arrow-right" icon-position="after" href="https://docs.electrik.dev" target="_blank">Documentation</x-slate::button>
         </div>
     </div>
-    <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 prose-lg font-serif text-black py-6">
-        <h2>Designed by developers for developers like you!</h2>
-        <p>We believe that open-source projects should not be bound for pay walled to get additional features. We believe in true spirit of open source. Our pricing will surprise you!</p>
+</section>
+
+<section class="bg-white dark:bg-black flex flex-col">
+    <!-- Pricing Section -->
+    <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 prose-lg font-serif text-black dark:text-white py-6">
+        <h2>Designed by Developers for Developers Like You!</h2>
+        <p>We believe that open-source projects should not be paywalled to access additional features. We believe in the true spirit of open source. Our pricing will surprise you!</p>
+        <h2>Pricing</h2>
+        <p class="text-7xl">$0</p>
+        <p>Best for every kind of team, whether big or small.</p>
     </div>
 </section>
 
+<section class="bg-neutral-100 dark:bg-neutral-900 flex flex-col py-12">
+    <!-- Newsletter Section -->
+    <div class="prose text-center text-black dark:text-white">
+        <h3>Stay in Touch</h3>
+        <p>Be the first to know about the latest releases and features.</p>
+    </div>
+    <div class="mt-4">
+        <form action="https://dev.us18.list-manage.com/subscribe/post?u=064d5bcdb0689bfbb9cb29316&amp;id=f8de632e28&amp;f_id=001a1de7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+            <div id="mce-responses" class="clear foot">
+                <div class="response" id="mce-error-response" style="display: none;"></div>
+                <div class="response" id="mce-success-response" style="display: none;"></div>
+            </div>
+            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                <input type="text" name="b_064d5bcdb0689bfbb9cb29316_f8de632e28" tabindex="-1" value="">
+            </div>
+            <div class="flex max-w-xl mx-auto">
+                <div class="w-4/6">
+                    <x-slate::input type="email" placeholder="Email Address" name="EMAIL" id="mce-EMAIL" class="rounded-r-none" />
+                </div>
+                <div class="w-2/6">
+                    <x-slate::button type="submit" name="subscribe" id="mc-embedded-subscribe" class="rounded-l-none">Subscribe</x-slate::button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 
-
+<!-- Footer -->
+<footer class="py-12 bg-white dark:bg-black">
+    <hr class="border-gray-300 dark:border-gray-700" />
+    <p class="mt-4 prose text-center text-gray-600 dark:text-gray-400">
+        Copyright &copy; 2023 - {{ date('Y') }}, Neeraj Kumar and the Electrik contributors. 
+        <a href="https://github.com/electrikhq" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Contribute</a>.
+    </p>
+</footer>
 
 @endsection
