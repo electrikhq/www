@@ -18,14 +18,17 @@
         <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400 lg:text-xl sm:px-16 xl:px-48">
             Electrik is a free and open-source Laravel starter-kit that gives you everything you need to start building a SaaS product.
         </p>
-        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <x-slate::button color="black" href="{{ url('docs/slate/master') }}">Documentation</x-slate::button>
-            <x-slate::button color="black" icon="carbon-logo-github" link="https://github.com/electrikhq/electrik">Github</x-slate::button>
+        <div class="mt-4">
+            <img src="{{ Vite::asset('resources/images/electrik-dashboard.png') }}" alt="Electrik Dashboard" class="w-3/4 h-auto text-center mx-auto" />
+        </div>
+        <div class="mt-12 flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <x-slate::button size="lg" color="black" href="{{ url('docs/slate/master') }}">Documentation</x-slate::button>
+            <x-slate::button size="lg" color="black" icon="carbon-logo-github" link="https://github.com/electrikhq/electrik">Github</x-slate::button>
         </div>
     </div>
 </section>
 
-<section class="bg-white dark:bg-black flex flex-col">
+<section class="bg-neutral-100 dark:bg-black flex flex-col py-24">
     <!-- Introduction Section -->
     <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 prose-lg font-serif text-black dark:text-white">
         <h2>Why Another Laravel Starter Kit?</h2>
@@ -53,7 +56,7 @@
             <x-slate::button class="mt-4" icon="carbon-arrow-right" icon-position="after" href="https://docs.electrik.dev" target="_blank">Documentation</x-slate::button>
         </div>
         <div class="col-span-1">
-            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-dashboard.png" alt="Electrik Dashboard" class="w-full h-auto rounded-md shadow-md" />
+            <img src="{{ Vite::asset('resources/images/electrik-dashboard.png') }}" alt="Electrik Dashboard" class="w-full h-auto rounded-md shadow-md" />
         </div>
     </div>
 </section>
@@ -62,7 +65,7 @@
     <!-- Features Section 2 -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 items-center py-24">
         <div class="col-span-1">
-            <img src="https://electrik.dev/wp-content/uploads/2024/06/electrik-onboarding.png" alt="Electrik Onboarding" class="w-full h-auto rounded-md shadow-md" />
+            <img src="{{ Vite::asset('resources/images/electrik-onboarding.png') }}" alt="Electrik Onboarding" class="w-full h-auto rounded-md shadow-md" />
         </div>
         <div class="p-12 text-black dark:text-white">
             <h2>All the Features in One Library</h2>
@@ -92,7 +95,44 @@
     </div>
 </section>
 
-<section class="bg-neutral-100 dark:bg-neutral-900 flex flex-col py-12">
+<section class="bg-gray-100 dark:bg-gray-900 py-8">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200">Frequently Asked Questions</h2>
+        <div class="mt-6 space-y-4">
+            <div class="text-left">
+                <button class="w-full text-left text-gray-800 dark:text-gray-200 font-medium">
+                    What is Electrik Laravel SaaS Starter Kit?
+                </button>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    Electrik is a free and open-source Laravel starter kit that provides all the essential tools you need to start building a SaaS product. It is built on top of popular frameworks and libraries such as Laravel, Livewire, TailwindCSS, and Alpine.js, allowing you to accelerate critical development time.
+                </p>
+            </div>
+            <div class="text-left">
+                <button class="w-full text-left text-gray-800 dark:text-gray-200 font-medium">
+                    Who is Electrik designed for?
+                </button>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    Electrik is designed for developers who want to quickly start building SaaS applications. Whether you are working on a small project or a large-scale enterprise application, Electrik provides a solid foundation to get you started.
+                </p>
+            </div>
+            <div class="text-left">
+                <button class="w-full text-left text-gray-800 dark:text-gray-200 font-medium">
+                    How do I install Electrik?
+                </button>
+                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                    To install Electrik, clone the GitHub repository and follow the setup instructions provided in the documentation.
+                </p>
+            </div>
+            <!-- Add more FAQs here -->
+        </div>
+        <div class="mt-4">
+            <x-slate::button href="{{ url('/faqs') }}" color="white" icon="carbon-arrow-right" icon-position="after">View All FAQs</x-slate::button>
+        </div>
+    </div>
+</section>
+
+
+<section class="dark:bg-black flex flex-col py-12 items-center mt-12">
     <!-- Newsletter Section -->
     <div class="prose text-center text-black dark:text-white">
         <h3>Stay in Touch</h3>
@@ -119,13 +159,5 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-12 bg-white dark:bg-black">
-    <hr class="border-gray-300 dark:border-gray-700" />
-    <p class="mt-4 prose text-center text-gray-600 dark:text-gray-400">
-        Copyright &copy; 2023 - {{ date('Y') }}, Neeraj Kumar and the Electrik contributors. 
-        <a href="https://github.com/electrikhq" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Contribute</a>.
-    </p>
-</footer>
 
 @endsection

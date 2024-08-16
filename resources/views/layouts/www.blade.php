@@ -27,11 +27,11 @@
 	</head>
 
 
-	<body class="bg-white text-gray-900 antialiased leading-normal flex flex-col h-full mx-auto container">
+	<body class="bg-white text-gray-900 dark:bg-black dark:text-white antialiased leading-normal flex flex-col h-full">
 
 		@include('partials.navbar')
 		
-		<div class="flex flex-col h-full w-full">
+		<div class="flex flex-col">
 
 			@if(isset($slot))
 				{!! $slot !!}
@@ -40,6 +40,8 @@
 			@endif
 
 		</div>
+
+		@include('components.footer')
 
 		@stack('scripts')
 

@@ -26,6 +26,12 @@ function flattenSidebar($items, $baseSlug = '') {
     return $flattened;
 }
 
+// In your route file (web.php)
+Route::get('/docs', function () {
+    return redirect()->route('docs.show', ['project' => 'slate', 'slug' => '', 'version' => '1.x']);
+});
+
+
 Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $slug = null) {
     if (!$slug) $slug = 'index';
 
