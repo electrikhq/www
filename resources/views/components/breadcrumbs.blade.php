@@ -29,18 +29,18 @@
         @if ($parts)
             @foreach ($parts as $index => $part)
                 @php
-                    $url .= ($index < count($parts) - 1 ? '/' : '') . $part ;
+                    $url .= '/' . $part;
                 @endphp
                 <li>
                     <x-slate::icon icon="carbon-chevron-right" size="xs" />
                 </li>
                 <li>
                     @if($index < count($parts) - 1)
+                        <span class="text-gray-500 dark:text-gray-400">{{ str_replace('-', ' ', ucwords($part)) }}</span>
+                    @else
                         <a href="{{ $url }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
                             {{ str_replace('-', ' ', ucwords($part)) }}
                         </a>
-                    @else
-                        <span class="text-gray-500 dark:text-gray-400">{{ str_replace('-', ' ', ucwords($part)) }}</span>
                     @endif
                 </li>
             @endforeach
@@ -76,7 +76,7 @@
                     "@type": "ListItem",
                     "position": {{ $index + 4 }},
                     "name": "{{ str_replace('-', ' ', ucwords($part)) }}",
-                    "item": "{{ route('docs.show', ['project' => $project, 'version' => $version, 'slug' => implode('/', array_slice($parts, 0, $index + 1))]) }}"
+                    "item": "{{ $index < count($parts) - 1 ? '' : route('docs.show', ['project' => $project, 'version' => $version, 'slug' => implode('/', array_slice($parts, 0, $index + 1))]) }}"
                 }
                 @endforeach
             ]

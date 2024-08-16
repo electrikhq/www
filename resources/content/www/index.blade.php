@@ -5,11 +5,6 @@
 <section class="bg-white dark:bg-black flex flex-col">
     <!-- Announcement Banner -->
     <div class="my-12 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-        <a href="#" class="inline-flex items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
-            <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span>
-            <span class="text-sm font-medium">Electrik has a new home! Read more</span>
-            <x-slate::icon icon="carbon-chevron-right" size="sm" />
-        </a>
         
         <!-- Hero Section -->
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
@@ -131,33 +126,7 @@
     </div>
 </section>
 
-
-<section class="dark:bg-black flex flex-col py-12 items-center mt-12">
-    <!-- Newsletter Section -->
-    <div class="prose text-center text-black dark:text-white">
-        <h3>Stay in Touch</h3>
-        <p>Be the first to know about the latest releases and features.</p>
-    </div>
-    <div class="mt-4">
-        <form action="https://dev.us18.list-manage.com/subscribe/post?u=064d5bcdb0689bfbb9cb29316&amp;id=f8de632e28&amp;f_id=001a1de7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
-            <div id="mce-responses" class="clear foot">
-                <div class="response" id="mce-error-response" style="display: none;"></div>
-                <div class="response" id="mce-success-response" style="display: none;"></div>
-            </div>
-            <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                <input type="text" name="b_064d5bcdb0689bfbb9cb29316_f8de632e28" tabindex="-1" value="">
-            </div>
-            <div class="flex max-w-xl mx-auto">
-                <div class="w-4/6">
-                    <x-slate::input type="email" placeholder="Email Address" name="EMAIL" id="mce-EMAIL" class="rounded-r-none" />
-                </div>
-                <div class="w-2/6">
-                    <x-slate::button type="submit" name="subscribe" id="mc-embedded-subscribe" class="rounded-l-none">Subscribe</x-slate::button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+@include('components.newsletter')
 
 
 @endsection

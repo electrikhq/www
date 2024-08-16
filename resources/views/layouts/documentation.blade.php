@@ -1,10 +1,10 @@
 @extends('layouts.www')
 
 @section('content')
-<div class="flex flex-col h-screen">
+<div class="container mx-auto flex flex-col h-screen">
 	<div class="flex flex-1 overflow-hidden">
-		<div class="flex w-64 p-4 flex-col">
-			<div class="version-dropdown mb-4">
+		<div class="w-64 p-4 flex flex-col bg-neutral-100 dark:bg-neutral-800">
+			<div class="mb-4">
 				<form x-data="{
                     version: '{{ $version }}',
                     updateAction() {
@@ -16,8 +16,8 @@
                 }"
 					action="{{ route('docs.show', ['project' => $project, 'version' => $version, 'slug' => 'index']) }}"
 					method="get">
-					<label for="version" class="block text-sm font-medium text-gray-700">Version:</label>
-					<select id="version" name="version" x-model="version" @change="updateAction()" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+					<label for="version" class="block text-sm font-medium text-gray-700 dark:text-white">Version:</label>
+					<select id="version" name="version" x-model="version" @change="updateAction()" class="mt-1 block w-full pl-3 pr-10 py-2 text-sm border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 rounded-md">
 						@foreach ($availableVersions as $ver)
 						<option value="{{ $ver }}" {{ $version == $ver ? 'selected' : '' }}>
 							{{ $ver }}
@@ -33,23 +33,21 @@
 				@endforeach
 			</ul>
 		</div>
-		<div class="flex flex-1 flex-col">
-			<div class="flex flex-1 overflow-y-auto paragraph px-6">
+		<div class="flex flex-1 flex-col dark:text-white text-gray-900">
+			<div class="flex-1 overflow-y-auto px-6">
 				<div class="grid grid-cols-12 gap-4">
 					<!-- Main Content Area -->
 					<div class="col-span-10 py-12">
 						@include('components.breadcrumbs', ['project' => $project, 'version' => $version, 'slug' => $slug])
 
-						<div class="prose !max-w-none">
+						<div class="prose dark:prose-invert !max-w-none">
 							@if(isset($html))
 							{!! $html !!}
 							@else
 							@yield('content')
 							@endif
 						</div>
-						<div>
-							<hr class="my-6" />
-						</div>
+						<hr class="my-6" />
 						<div class="mt-8 flex justify-between">
 							@if ($previousPage)
 							<x-slate::button href="{{ $previousPage['link'] }}" class="mr-auto" icon="carbon-arrow-left" icon-position="before">
@@ -67,11 +65,12 @@
 
 					<!-- Right Sidebar (On This Page) -->
 					<div class="col-span-2 py-12">
-						<h4 class="font-bold mb-2">On this page</h4>
-						<ul class="space-y-1">
+						<h4 class="font-bold mb-2 text-black">On this page</h4>
+						<ul class="space-y-1 text-sm">
 							@foreach ($headings as $heading)
-							<li class="ml-{{ $heading['level'] == 'h3' ? '4' : '2' }}">
-								<a href="#{{ $heading['id'] }}" class="text-neutral-600 hover:underline text-sm">
+							{{-- ml-2 ml-4 ml-6 --}}
+							<li class="ml-{{ $heading['level'] == 'h3' ? '6' : '2' }}">
+								<a href="#{{ $heading['id'] }}" class="text-neutral-600 hover:underline">
 									{{ $heading['text'] }}
 								</a>
 							</li>
@@ -79,6 +78,7 @@
 						</ul>
 					</div>
 				</div>
+				@include('components.newsletter')
 			</div>
 		</div>
 	</div>
