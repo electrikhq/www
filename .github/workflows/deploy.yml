@@ -16,12 +16,12 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1' # Or your PHP version
+          php-version: '8.2' # Or your PHP version
           extensions: mbstring, xml, dom
           ini-values: post_max_size=256M, upload_max_filesize=256M
 
       - name: Install Composer dependencies
-        run: composer install --no-dev --prefer-dist --optimize-autoloader
+        run: composer install
 
       - name: Build static files
         run: php artisan export
