@@ -35,23 +35,27 @@
 				
 		</div>
 		<div class="col-span-9 py-2">
-			<div class="prose" >
-				@if(isset($html))
-					{!! $html !!}
-				@else
-					@yield('content')
-				@endif
+			<div class="grid grid-cols-12 gap-4">
+				<div class="prose col-span-10">
+					@if(isset($html))
+						{!! $html !!}
+					@else
+						@yield('content')
+					@endif
+				</div>
+				<div class="col-span-2">
+					<h4 class="font-bold mb-2">On this page</h4>
+					<ul class="space-y-1">
+						@foreach ($headings as $heading)
+							<li class="ml-{{ $heading['level'] == 'h3' ? '4' : '2' }}">
+								<a href="#{{ $heading['id'] }}" class="text-blue-600 hover:underline">
+									{{ $heading['text'] }}
+								</a>
+							</li>
+						@endforeach
+					</ul>
+				</div>
 			</div>
-			<h4 class="font-bold mb-2">On this page</h4>
-			<ul class="space-y-1">
-				@foreach ($headings as $heading)
-					<li class="ml-{{ $heading['level'] == 'h3' ? '4' : '2' }}">
-						<a href="#{{ $heading['id'] }}" class="text-blue-600 hover:underline">
-							{{ $heading['text'] }}
-						</a>
-					</li>
-				@endforeach
-			</ul>
 		</div>
 	</div>
 	@stack('scripts')

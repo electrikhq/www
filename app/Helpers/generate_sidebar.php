@@ -9,8 +9,8 @@ function generateSidebar($project, $version) {
     return buildSidebarTree($docsPath, $project);
 }
 
-function buildSidebarTree($directory, $project, $baseUrl = '')
-{
+function buildSidebarTree($directory, $project, $baseUrl = '') {
+
     $items = [];
 
     $filesAndDirs = File::directories($directory);

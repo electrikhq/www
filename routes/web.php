@@ -37,7 +37,17 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     $converter = new CommonMarkConverter(['html_input' => 'allow']);
     $html = $converter->convert($bladeRenderedContent);
 
-    return view('layouts.documentation', compact('html', 'version', 'project', 'availableVersions', 'sidebar', 'headings'));
+    // return view('layouts.documentation', compact('html', 'version', 'project', 'availableVersions', 'sidebar', 'headings'));
+    return view('layouts.documentation', [
+        'html' => $html,
+        'headings' => $parsedContent['headings'],
+        'version' => $version,
+        'availableVersions' => $availableVersions,
+        'project' => $project,
+        'sidebar' => generateSidebar($project, $version),
+        'title' => $title,
+        'description' => $description,
+    ]);
 
 })->where('slug', '.*')->name('docs.show');
 
