@@ -2,9 +2,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 
 <div class="code-preview border p-4">
-    <div class="rendered-output mb-4">{!! Blade::render($code) !!}</div>
+    {{-- Render the Blade component as HTML --}}
+    {!! Blade::render($slot->toHtml()) !!}
+
+    {{-- Display the code block with syntax highlighting --}}
     <div class="code-block">
-        <pre><code class="language-html">{{ ($code) }}</code></pre>
+        <pre><code class="language-html">{{ \Illuminate\Support\Str::of($slot)->trim() }}</code></pre>
     </div>
 </div>
 

@@ -22,6 +22,7 @@
 		@stack('styles')
 
 		@vite(['resources/css/application.css', 'resources/js/application.js'])
+
         
 	</head>
 

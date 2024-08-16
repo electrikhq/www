@@ -44,6 +44,7 @@
 							@yield('content')
 						@endif
 					</div>
+					<div><hr class="my-6"/></div>
 					<div class="mt-8 flex justify-between">
 						@if ($previousPage)
 							<x-slate::button href="{{ $previousPage['link'] }}" class="mr-auto" icon="carbon-arrow-left" icon-position="before">

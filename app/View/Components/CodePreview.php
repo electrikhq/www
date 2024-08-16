@@ -4,8 +4,8 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class CodePreview extends Component
-{
+class CodePreview extends Component {
+
     public $code;
 
     /**
@@ -24,8 +24,11 @@ class CodePreview extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render()
-    {
-        return view('components.code-preview');
+    public function render() {
+        return function (array $data) {
+            $slot = $data['slot']->toHtml(); // Get the slot content as HTML
+
+            return view('components.code-preview', compact('slot'));
+        };
     }
 }
