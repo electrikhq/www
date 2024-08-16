@@ -36,12 +36,27 @@
 		</div>
 		<div class="col-span-9 py-2">
 			<div class="grid grid-cols-12 gap-4">
-				<div class="prose col-span-10">
-					@if(isset($html))
-						{!! $html !!}
-					@else
-						@yield('content')
-					@endif
+				<div class="col-span-10">
+					<div class="prose col-span-10">
+						@if(isset($html))
+							{!! $html !!}
+						@else
+							@yield('content')
+						@endif
+					</div>
+					<div class="mt-8 flex justify-between">
+						@if ($previousPage)
+							<x-slate::button href="{{ $previousPage['link'] }}" class="mr-auto" icon="carbon-arrow-left" icon-position="before">
+								{{ $previousPage['title'] }}
+							</x-slate::button>
+						@endif
+
+						@if ($nextPage)
+							<x-slate::button href="{{ $nextPage['link'] }}" class="ml-auto" icon="carbon-arrow-right" icon-position="after">
+								{{ $nextPage['title'] }}
+							</x-slate::button>
+						@endif
+					</div>
 				</div>
 				<div class="col-span-2">
 					<h4 class="font-bold mb-2">On this page</h4>

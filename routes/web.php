@@ -9,6 +9,25 @@ use League\CommonMark\CommonMarkConverter;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
+
+function flattenSidebar($items, $baseSlug = '') {
+    $flattened = [];
+
+    foreach ($items as $item) {
+        if ($item['type'] === 'file') {
+            $flattened[] = [
+                'title' => $item['title'],
+                'slug' => $baseSlug . '/' . pathinfo($item['link'], PATHINFO_FILENAME),
+                'link' => $item['link'],
+            ];
+        } elseif ($item['type'] === 'folder') {
+            $flattened = array_merge($flattened, flattenSidebar($item['children'], $baseSlug . '/' . basename($item['link'])));
+        }
+    }
+
+    return $flattened;
+}
+
 Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $slug = null) {
     
     if(!$slug) $slug = 'index';
@@ -19,6 +38,17 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
         });
 
     $sidebar = generateSidebar($project, $version);
+
+    $flatSidebar = flattenSidebar($sidebar);
+
+    $currentIndex = collect($flatSidebar)->search(function ($item) use ($slug) {
+        return $item['slug'] === '/'.$slug;
+    });
+
+    // dd($flatSidebar, $currentIndex, '/'.$slug);
+
+    $nextPage = $flatSidebar[$currentIndex + 1] ?? null;
+    $previousPage = $flatSidebar[$currentIndex - 1] ?? null;
 
 
     $file = File::get(resource_path("content/docs/{$project}/{$version}/{$slug}.md"));
@@ -40,13 +70,15 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     // return view('layouts.documentation', compact('html', 'version', 'project', 'availableVersions', 'sidebar', 'headings'));
     return view('layouts.documentation', [
         'html' => $html,
-        'headings' => $parsedContent['headings'],
+        'headings' => $headings,
         'version' => $version,
         'availableVersions' => $availableVersions,
         'project' => $project,
         'sidebar' => generateSidebar($project, $version),
         'title' => $title,
         'description' => $description,
+        'nextPage' => $nextPage,
+        'previousPage' => $previousPage,
     ]);
 
 })->where('slug', '.*')->name('docs.show');
