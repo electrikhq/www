@@ -66,7 +66,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-        // 'deploy' => '/usr/local/bin/netlify deploy --prod',
+        'sitemap:generate' => 'php artisan sitemap:generate',
     ],
 
 ];
