@@ -30,10 +30,10 @@ class GenerateSitemap extends Command
     public function handle() {
         
         // Generate the sitemap with localhost URLs and then modify them to point to the live site
-        SitemapGenerator::create(config('app.url'))
+        SitemapGenerator::create(env('APP_LOCAL_URL'))
             ->hasCrawled(function (Url $url) {
                 // Replace the localhost URL with the live URL
-                $url->setUrl(str_replace(config('app.url'), env('APP_PRODUCTION_URL'), $url->url));
+                $url->setUrl(str_replace(env('APP_LOCAL_URL'), env('APP_PRODUCTION_URL'), $url->url));
 
                 return $url;
             })

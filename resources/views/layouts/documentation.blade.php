@@ -70,7 +70,7 @@
 							@foreach ($headings as $heading)
 							{{-- ml-2 ml-4 ml-6 --}}
 							<li class="ml-{{ $heading['level'] == 'h3' ? '6' : '2' }}">
-								<a href="#{{ $heading['id'] }}" class="text-neutral-600 hover:underline">
+								<a href="#{{ $heading['id'] }}" class="text-neutral-600 hover:underline dark:text-neutral-300">
 									{{ $heading['text'] }}
 								</a>
 							</li>
