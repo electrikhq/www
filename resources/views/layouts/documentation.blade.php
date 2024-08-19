@@ -1,9 +1,43 @@
 @extends('layouts.www')
 
+@section('head')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request()->url() }}"
+  },
+  "headline": "{{ $title }}",
+  "description": "{{ $description }}",
+  "url": "{{ request()->url() }}",
+  "datePublished": "{{ $lastModifiedDate }}",  // Replace with actual publication date if available
+  "dateModified": "{{ $lastModifiedDate }}",
+  "author": {
+    "@type": "Person",
+    "name": "Neeraj Kumar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Electrik",
+  },
+  "proficiencyLevel": "Intermediate",  // Example additional property
+  "dependencies": ["Laravel", "TailwindCSS", "Electrik"],  // Example additional property
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "PHP"
+  }
+}
+</script>
+
+
+@endsection
+
 @section('content')
     <div class="grid grid-cols-12 gap-12">
         <!-- Main Content Area -->
-        <div class="col-span-10 py-12">
+        <div class="col-span-9 py-12">
             @include('components.breadcrumbs', ['project' => $project, 'version' => $version, 'slug' => $slug])
 
             <div class="prose dark:prose-invert !max-w-none">
@@ -12,6 +46,11 @@
                 @else
                 @yield('content')
                 @endif
+            </div>
+            <div class="prose dark:prose-invert !max-w-none text-right mt-12 text-sm text-neutral-600">
+                <span class="inline-flex items-center content-right space-x-2" title="{{ $lastModifiedDate->toIso8601String() }}">
+                    <x-slate::icon icon="carbon-time" size="xs" /> <span>Last updated on {{ $lastModifiedDate->diffForHumans() }}</span>
+                </span>
             </div>
             <hr class="my-6" />
             <div class="mt-8 flex justify-between">
@@ -30,7 +69,7 @@
         </div>
 
         <!-- Right Sidebar (On This Page) -->
-        <div class="col-span-2 py-12">
+        <div class="col-span-3 py-12">
             <h4 class="font-bold mb-2 text-black">On this page</h4>
             <ul class="space-y-1 text-sm">
                 @foreach ($headings as $heading)
@@ -42,6 +81,29 @@
                 </li>
                 @endforeach
             </ul>
+            <hr class="mt-12"/>
+            <div class="mt-6">
+                <x-slate::button
+                    size="sm"
+                    color="white" 
+                    icon="carbon-arrow-right"
+                    icon-position="after"
+                    href="https://github.com/electrikhq/{{$project}}-docs/issues/new?title=Feedback%20For%20{{$title}}%20({{ $slug }}.md)" 
+                    traget="_blank"
+                >
+                Question? Give us feedback
+                </x-slate::button>
+                <x-slate::button
+                    size="sm"
+                    color="white" 
+                    icon="carbon-arrow-right"
+                    icon-position="after"
+                    target=_blank
+                    href="https://github.com/electrikhq/{{ $project }}-docs/edit/{{ $version }}/{{$slug}}.md"
+                >
+                Contibute to this page
+                </x-slate::button>
+            </div>
         </div>
     </div>
 @endsection

@@ -44,7 +44,9 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     $nextPage = $flatSidebar[$currentIndex + 1] ?? null;
     $previousPage = $flatSidebar[$currentIndex - 1] ?? null;
 
-    $file = File::get(resource_path("content/docs/{$project}/{$version}/{$slug}.md"));
+    
+    $filePath = resource_path("content/docs/{$project}/{$version}/{$slug}.md");
+    $file = File::get($filePath);
 
     // Parse the Markdown file with front matter
     $document = YamlFrontMatter::parse($file);
@@ -63,6 +65,12 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
     $parsedContent = generateTableOfContents($renderedContent);
     $headings = $parsedContent['headings'];
 
+
+    // Get the last modified time of the file
+    $lastModified = File::lastModified($filePath);
+    $lastModifiedDate = \Carbon\Carbon::createFromTimestamp($lastModified);
+
+
     // Return the rendered HTML to the view
     return view('layouts.documentation', [
         'slug' => $slug,
@@ -76,6 +84,8 @@ Route::get('docs/{project}/{version}/{slug?}', function ($project, $version, $sl
         'description' => $description,
         'nextPage' => $nextPage,
         'previousPage' => $previousPage,
+        'lastModifiedDate' => $lastModifiedDate,
+
     ]);
 })->where('slug', '.*')->name('docs.show');
 

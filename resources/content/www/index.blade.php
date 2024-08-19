@@ -20,6 +20,9 @@
             <x-slate::button size="lg" color="black" href="{{ url('docs/slate/master') }}">Documentation</x-slate::button>
             <x-slate::button size="lg" color="black" icon="carbon-logo-github" link="https://github.com/electrikhq/electrik">Github</x-slate::button>
         </div>
+        <hr/>
+            <x-newsletter />
+        <hr/>
     </div>
 </section>
 

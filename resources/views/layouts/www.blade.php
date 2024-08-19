@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="bg-white dark:bg-black h-screen">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,9 @@
 
     @stack('styles')
 
+    @yield('head')
+
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -37,7 +40,8 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<body class="h-full font-sans antialiased text-gray-900 dark:text-gray-100">
+<body class="min-h-screen h-full font-sans antialiased text-gray-900 dark:text-gray-100 bg-white dark:bg-black">
+
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D7KL4F"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -48,7 +52,7 @@
         <!-- Top Navbar -->
         <x-navbar />
 
-        <div class="flex flex-1 container mx-auto">
+        <div class="flex flex-1">
             @if(isset($sidebar))
             <!-- Sidebar (Desktop and Mobile) -->
             <aside class="flex-shrink-0 w-64 bg-white dark:bg-gray-800 "
@@ -70,7 +74,7 @@
 
             <!-- Main content -->
             <div class="flex-1 flex flex-col overflow-hidden ">
-                <main class="flex-1 overflow-y-auto">
+                <main class="flex-1 overflow-y-auto bg-white dark:bg-black">
                     <div class="px-4 py-6 sm:px-6 lg:px-8">
                         @if(isset($slot))
                             {!! $slot !!}

@@ -1,11 +1,13 @@
-<nav class="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
+<nav class="bg-white dark:bg-black border-b dark:border-gray-700">
     <div class="px-4 py-3 sm:px-6 lg:px-8 flex justify-between items-center">
         <button @click="sidebarOpen = true" class="md:hidden text-gray-500 dark:text-gray-400">
             <x-slate::icon icon="carbon-menu" />
         </button>
-        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">
-            {{ config('app.name', 'Electrik') }}
-        </h1>
+        <div class="flex-nowrap text-nowrap">
+            <x-slate::button icon="carbon-flash-filled" color="white">
+                {{ config('app.name', 'Electrik') }}
+            </x-slate::button>
+        </div>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
