@@ -61,6 +61,7 @@
 							</x-slate::button>
 							@endif
 						</div>
+						@include('components.newsletter')
 					</div>
 
 					<!-- Right Sidebar (On This Page) -->
@@ -78,7 +79,6 @@
 						</ul>
 					</div>
 				</div>
-				@include('components.newsletter')
 			</div>
 		</div>
 	</div>

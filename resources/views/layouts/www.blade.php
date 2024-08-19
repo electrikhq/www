@@ -39,7 +39,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 		<x-slate::alert full-width>
-            [Update 15th Aug 2024]: I am currently updating the site. I am also importing existing documenation on this site for better experience. Please bear with me for few more days!
+            [Update 15th Aug 2024]: I am currently updating the site. I am also importing existing documenation on this site for better experience. Please bear with me for few more days!<br/>
+            [Update 18th Aug 2024]: I have started adding more documenation to the site for Slate
         </x-slate::alert>
 		@include('partials.navbar')
 		
