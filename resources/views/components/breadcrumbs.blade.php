@@ -4,24 +4,24 @@
 @endphp
 
 <nav class="text-sm font-medium mb-4" aria-label="Breadcrumb">
-    <ol class="inline-flex items-center space-x-1 md:space-x-3">
-        <li>
+    <ol class="flex flex-wrap items-center space-x-1 md:space-x-3 ml-0 ps-0">
+        <li class="flex items-center">
             <a href="{{ url('/') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
                 Home
             </a>
         </li>
-        <li>
+        <li class="flex items-center">
             <x-slate::icon icon="carbon-chevron-right" size="xs" />
         </li>
-        <li>
+        <li class="flex items-center">
             <a href="{{ route('docs.show', ['project' => $project, 'version' => $version, 'slug' => 'index']) }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
                 {{ ucfirst($project) }}
             </a>
         </li>
-        <li>
+        <li class="flex items-center">
             <x-slate::icon icon="carbon-chevron-right" size="xs" />
         </li>
-        <li>
+        <li class="flex items-center">
             <a href="{{ route('docs.show', ['project' => $project, 'version' => $version, 'slug' => 'index']) }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
                 Version {{ $version }}
             </a>
@@ -31,10 +31,10 @@
                 @php
                     $url .= '/' . $part;
                 @endphp
-                <li>
+                <li class="flex items-center">
                     <x-slate::icon icon="carbon-chevron-right" size="xs" />
                 </li>
-                <li>
+                <li class="flex items-center">
                     @if($index < count($parts) - 1)
                         <span class="text-gray-500 dark:text-gray-400">{{ str_replace('-', ' ', ucwords($part)) }}</span>
                     @else

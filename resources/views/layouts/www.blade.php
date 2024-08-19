@@ -1,63 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full w-full">
-	<head>
-		<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>
-			@if(isset($title) && $title) {{ ucwords($title) }} - @endif @if(isset($project) && $project) {{ ucwords($project) }} - @endif @if(isset($version) && $version) {{ ucwords($version) }} - @endif {{ config('app.name', 'Electrik') }} - {{ config('app.tagline', 'Laravel SaaS Starter Kit') }}
-		</title>
+    <title>
+        @if(isset($title) && $title) {{ ucwords($title) }} - @endif
+        @if(isset($project) && $project) {{ ucwords($project) }} - @endif
+        @if(isset($version) && $version) {{ ucwords($version) }} - @endif
+        {{ config('app.name', 'Electrik') }} - {{ config('app.tagline', 'Laravel SaaS Starter Kit') }}
+    </title>
 
-		<meta name="description" content="@if(isset($description) && $description){{ ($description ?? '') }}@endif">
+    <meta name="description" content="@if(isset($description) && $description){{ ($description ?? '') }}@endif">
+    <meta property="og:title" content="@if(isset($title) && $title) {{ ucwords($title) }} - @endif
+    @if(isset($project) && $project) {{ ucwords($project) }} - @endif
+    @if(isset($version) && $version) {{ ucwords($version) }} - @endif
+    {{ config('app.name', 'Electrik') }} - {{ config('app.tagline', 'Laravel SaaS Starter Kit') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:URL" content="{{ request()->url() }}" />
+    <meta property="og:description" content="@if(isset($description) && $description){{ ($description ?? '') }}@endif" />
 
-		<meta property="og:title" content="@if(isset($title) && $title) {{ ucwords($title) }} - @endif @if(isset($project) && $project) {{ ucwords($project) }} - @endif @if(isset($version) && $version) {{ ucwords($version) }} - @endif {{ config('app.name', 'Electrik') }} - {{ config('app.tagline', 'Laravel SaaS Starter Kit') }}" />
-		<meta property="og:type" content="website" />
-		<meta property="og:URL" content="{{ request()->url() }}" />
-		<meta property="og:description" content="@if(isset($description) && $description){{ ($description ?? '') }}@endif" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    @vite(['resources/css/application.css', 'resources/js/application.js'])
 
-		@stack('styles')
+    @stack('styles')
 
-		@vite(['resources/css/application.css', 'resources/js/application.js'])
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N8D7KL4F');</script>
+    <!-- End Google Tag Manager -->
+</head>
 
-        <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N8D7KL4F');</script>
-<!-- End Google Tag Manager -->
-	</head>
+<body class="h-full font-sans antialiased text-gray-900 dark:text-gray-100">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D7KL4F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
+    <div class="flex flex-col h-screen" x-data="{ sidebarOpen: false }">
 
-	<body class="bg-white text-gray-900 dark:bg-black dark:text-white antialiased leading-normal flex flex-col h-full">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D7KL4F"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-		<x-slate::alert full-width>
-            [Update 15th Aug 2024]: I am currently updating the site. I am also importing existing documenation on this site for better experience. Please bear with me for few more days!<br/>
-            [Update 18th Aug 2024]: I have started adding more documenation to the site for Slate
-        </x-slate::alert>
-		@include('partials.navbar')
-		
-		<div class="flex flex-col">
+        <!-- Top Navbar -->
+        <x-navbar />
 
-			@if(isset($slot))
-				{!! $slot !!}
-			@else
-				@yield('content')
-			@endif
+        <div class="flex flex-1 container mx-auto">
+            @if(isset($sidebar))
+            <!-- Sidebar (Desktop and Mobile) -->
+            <aside class="flex-shrink-0 w-64 bg-white dark:bg-gray-800 "
+                   :class="{'hidden md:flex': !sidebarOpen, 'fixed inset-0 z-50 flex': sidebarOpen}">
+                <div class="flex flex-col w-full h-full">
+                    <button @click="sidebarOpen = false" class="md:hidden text-gray-500 dark:text-gray-400">
+                        <x-slate::icon icon="carbon-close" size="lg" />
+                    </button>
+                    <nav class="flex-1 px-2 py-4 overflow-y-auto">
+                        <ul class="space-y-2">
+                            @foreach ($sidebar as $item)
+                                @include('components.sidebar-item', ['item' => $item])
+                            @endforeach
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            @endif
 
-		</div>
-
-		@include('components.footer')
-
-		@stack('scripts')
-
-		
-	</body>
+            <!-- Main content -->
+            <div class="flex-1 flex flex-col overflow-hidden ">
+                <main class="flex-1 overflow-y-auto">
+                    <div class="px-4 py-6 sm:px-6 lg:px-8">
+                        @if(isset($slot))
+                            {!! $slot !!}
+                        @else
+                            @yield('content')
+                        @endif
+                    </div>
+                    <x-footer />
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
