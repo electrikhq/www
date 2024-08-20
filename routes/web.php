@@ -96,3 +96,8 @@ Route::get('{slug?}', function ($slug = null) {
 
     return view($slug);
 })->where('slug', '.*')->name('www.show');
+
+
+Route::get('/demo/slate/dashboard', function () {
+    return view('demo.slate.dashboard');
+});

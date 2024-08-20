@@ -36,14 +36,15 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N8D7KL4F');</script>
+    })(window,document,'script','dataLayer','GTM-');</script>
     <!-- End Google Tag Manager -->
 </head>
 
 <body class="min-h-screen h-full font-sans antialiased text-gray-900 dark:text-gray-100 bg-white dark:bg-black">
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D7KL4F"
+    <!-- GTM-N8D7KL4F -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
@@ -55,13 +56,37 @@
         <div class="flex flex-1">
             @if(isset($sidebar))
             <!-- Sidebar (Desktop and Mobile) -->
-            <aside class="flex-shrink-0 w-64 bg-white dark:bg-gray-800 "
+            <aside class="flex-shrink-0 w-64 bg-white dark:bg-black "
                    :class="{'hidden md:flex': !sidebarOpen, 'fixed inset-0 z-50 flex': sidebarOpen}">
                 <div class="flex flex-col w-full h-full">
                     <button @click="sidebarOpen = false" class="md:hidden text-gray-500 dark:text-gray-400">
                         <x-slate::icon icon="carbon-close" size="lg" />
                     </button>
-                    <nav class="flex-1 px-2 py-4 overflow-y-auto">
+                    @if(isset($availableVersions)) 
+                        <div class="version-dropdown mb-4 text-xs px-4 pt-4">
+                            <form x-data="{
+                                version: '{{ $version }}',
+                                updateAction() {
+                                    const form = $el;
+                                    const selectedVersion = this.version;
+                                    form.action = form.action.replace(/\/{{ $version }}\//, '/' + selectedVersion + '/');
+                                    form.submit();
+                                }
+                            }"
+                                action="{{ route('docs.show', ['project' => $project, 'version' => $version, 'slug' => 'index']) }}"
+                                method="get">
+                                <label for="version" class="block text-xs font-medium text-gray-700">Version:</label>
+                                <select id="version" name="version" x-model="version" @change="updateAction()" class="mt-1 block w-full pl-3 pr-10 py-2 text-xs border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-xs rounded-md">
+                                    @foreach ($availableVersions as $ver)
+                                    <option value="{{ $ver }}" {{ $version == $ver ? 'selected' : '' }}>
+                                        {{ $ver }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </form>
+                        </div>
+                    @endif
+                    <nav class="flex-1 px-4 py-4 overflow-y-auto">
                         <ul class="space-y-2">
                             @foreach ($sidebar as $item)
                                 @include('components.sidebar-item', ['item' => $item])

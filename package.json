@@ -19,6 +19,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "prismjs": "^1.29.0"
+        "prismjs": "^1.29.0",
+        "tailwind-safelist-generator": "^1.0.0"
     }
 }

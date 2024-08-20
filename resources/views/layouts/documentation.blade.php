@@ -20,7 +20,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Electrik",
+    "name": "Electrik"
   },
   "proficiencyLevel": "Intermediate",  // Example additional property
   "dependencies": ["Laravel", "TailwindCSS", "Electrik"],  // Example additional property
@@ -40,7 +40,7 @@
         <div class="col-span-9 py-12">
             @include('components.breadcrumbs', ['project' => $project, 'version' => $version, 'slug' => $slug])
 
-            <div class="prose dark:prose-invert !max-w-none">
+            <div class="prose dark:prose-invert !max-w-none prose-headings:underline prose-a:no-underline mt-6">
                 @if(isset($html))
                 {!! $html !!}
                 @else

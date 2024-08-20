@@ -6,22 +6,15 @@ module.exports = {
     darkMode: 'class',
     mode: 'jit', // JIT mode enabled
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
         './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/**/*.blade.php',
-        './resources/**/*.md',
-        './resources/views/vendor/**/*.blade.php',
-        './vendor/electrik/slate/resources/views/components/**/*.blade.php',
-        './vendor/usernotnull/tall-toasts/config/**/*.php',
-        './vendor/usernotnull/tall-toasts/resources/views/**/*.blade.php',
-        './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
-        './vendor/wire-elements/modal/resources/views/**/*.blade.php',
-        './vendor/electrik/electrik/resources/**/*.blade.php',
-        './vendor/electrik/slate/resources/**/*.blade.php',
+        './resources/**/*.{md,js,mdx,blade.php}',
+        './safelist.txt',
     ],
-	safelist: [{
-		pattern: /(bg|text)-(red|green|blue|primary|secondary|success|warning|danger|info)-(50|100|200|300|400|500|600|700|800|900)/,
+    safelist: [{
+		pattern: /(border|bg|text)-(red|green|blue|primary|secondary|success|warning|danger|info)-(50|100|200|300|400|500|600|700|800|900)/,
 		variants: ['sm', 'lg', 'hover', 'focus', 'lg:hover', 'dark'],
 
 	},],
@@ -45,5 +38,13 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('tailwind-safelist-generator')({
+            patterns: [
+              'bg-{colors}',
+              'text-{colors}',
+              'border-{colors}',
+              '{screens}:grid',
+            ],
+          }),
     ],
 };
