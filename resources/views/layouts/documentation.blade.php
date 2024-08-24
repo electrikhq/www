@@ -40,7 +40,7 @@
         <div class="col-span-9 py-12">
             @include('components.breadcrumbs', ['project' => $project, 'version' => $version, 'slug' => $slug])
 
-            <div class="prose dark:prose-invert !max-w-none prose-headings:underline prose-a:no-underline mt-6">
+            <div class="prose dark:prose-invert !max-w-none prose-headings:underline prose:no-underline mt-6" style="text-decoration: none !important;">
                 @if(isset($html))
                 {!! $html !!}
                 @else
@@ -93,6 +93,7 @@
                 >
                 Question? Give us feedback
                 </x-slate::button>
+                <br/>
                 <x-slate::button
                     size="sm"
                     color="white" 

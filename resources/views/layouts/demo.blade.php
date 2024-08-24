@@ -30,8 +30,8 @@
 
     @yield('head')
 
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/064d5bcdb0689bfbb9cb29316/6e30e55dcc6063c32531b4f95.js");</script>
 
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/064d5bcdb0689bfbb9cb29316/6e30e55dcc6063c32531b4f95.js");</script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -45,13 +45,10 @@
 
     <!-- Google Tag Manager (noscript) -->
     <!-- GTM-N8D7KL4F -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D7KL4F"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <x-slate::alert color="info" full-width>
-        [Update: 22 Aug, 2024]: I am currently working dilligently on Slate - Laravel Blade UI Kit. Once the development on it is complete, I'll release a production version.
-    </x-slate::alert>
     <div class="flex flex-col h-screen" x-data="{ sidebarOpen: false }">
 
         <!-- Top Navbar -->
@@ -104,13 +101,11 @@
             <!-- Main content -->
             <div class="flex-1 flex flex-col overflow-hidden ">
                 <main class="flex-1 overflow-y-auto bg-white dark:bg-black">
-                    <div class="px-4 py-6 sm:px-6 lg:px-8">
-                        @if(isset($slot))
-                            {!! $slot !!}
-                        @else
-                            @yield('content')
-                        @endif
-                    </div>
+                    @if(isset($slot))
+                        {!! $slot !!}
+                    @else
+                        @yield('content')
+                    @endif
                     <x-footer />
                 </main>
             </div>

@@ -9,23 +9,20 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        './storage/framework/views/*.php',
+        './storage/framework/views/**/*.php',
+        './vendor/electrik/slate/src/resources/views/**/*.blade.php',
+        './vendor/electrik/slate/**/*.php',
         './resources/**/*.{md,js,mdx,blade.php}',
-        './safelist.txt',
+        './vendor/electrik/slate/src/Helpers/SlateUiHelper.php',
     ],
-    safelist: [{
-		pattern: /(border|bg|text)-(red|green|blue|primary|secondary|success|warning|danger|info)-(50|100|200|300|400|500|600|700|800|900)/,
-		variants: ['sm', 'lg', 'hover', 'focus', 'lg:hover', 'dark'],
-
-	},],
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: colors.blue,
-                secondary: colors.neutral,
+                primary: colors.neutral,
+                secondary: colors.indigo,
                 success: colors.green,
                 warning: colors.yellow,
                 danger: colors.red,
@@ -38,13 +35,5 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
-        require('tailwind-safelist-generator')({
-            patterns: [
-              'bg-{colors}',
-              'text-{colors}',
-              'border-{colors}',
-              '{screens}:grid',
-            ],
-          }),
     ],
 };

@@ -101,3 +101,6 @@ Route::get('{slug?}', function ($slug = null) {
 Route::get('/demo/slate/dashboard', function () {
     return view('demo.slate.dashboard');
 });
+Route::get('/demo/slate/{slug}', function ($slug) {
+    return view('demo.slate.'.$slug);
+});

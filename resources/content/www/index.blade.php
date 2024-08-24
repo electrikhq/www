@@ -129,7 +129,5 @@
     </div>
 </section>
 
-@include('components.newsletter')
-
 
 @endsection
