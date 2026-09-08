@@ -6,6 +6,10 @@
 /tools/tailwindcss-color-scheme-generator /tools/tailwind-color-generator 301
 /tools/tailwindcss-color-scheme-generator/ /tools/tailwind-color-generator/ 301
 
+# Resources: thin-vol alias → canonical starter-kit guide
+/resources/laravel-saas-boilerplate /resources/laravel-saas-starter-kit 301
+/resources/laravel-saas-boilerplate/ /resources/laravel-saas-starter-kit/ 301
+
 # Compare: “{kit} alternative” → canonical electrik-vs-{kit} pages
 /compare/jetstream-alternative /compare/electrik-vs-jetstream 301
 /compare/jetstream-alternative/ /compare/electrik-vs-jetstream/ 301
