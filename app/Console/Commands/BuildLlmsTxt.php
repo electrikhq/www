@@ -37,6 +37,7 @@ class BuildLlmsTxt extends Command
             '- [Quickstart]('.$base.'/docs/getting-started/quickstart): Fastest path to a running app.',
             '- [Installation]('.$base.'/docs/getting-started/installation): `electrik:install` deep dive.',
             '- [Architecture]('.$base.'/docs/getting-started/architecture): Package vs App, teams as tenant.',
+            '- [AI & agents]('.$base.'/docs/getting-started/ai): Cursor/Claude with Electrik — llms.txt, skills, package-safe rules.',
             '- [Install page]('.$base.'/install): Marketing quickstart.',
             '',
             '## Core concepts',

@@ -29,11 +29,14 @@ Electrik is a **Laravel SaaS starter kit** shipped as a Composer package: authen
 
 Unlike Jetstream-style scaffolds that dump code into your app, Electrik stays vendor-owned. You require the package, run `php artisan electrik:install`, and customize via config, published views when needed, and your own `App\` code.
 
+That same model is why Electrik works with **Cursor / Claude / coding agents**: the shell stays a package; agents write product code in `App\` instead of forking dumped auth. See [AI & agents](/docs/getting-started/ai) and [/llms.txt](/llms.txt).
+
 ## Not included (on purpose)
 
 - Multi-database tenancy
 - Subdomain / custom-domain mapping (separate product line)
 - Paddle or multi-processor billing — **Stripe only**
+- Built-in “AI SaaS” product features (LLM chat, token meters) — add in `App\` if you need them
 
 ## License
 

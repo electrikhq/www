@@ -100,7 +100,7 @@ Cap marketing at ~5 hours/week if product work is primary. Consistency beats her
 - Cold CTO / purchased-list spam (includes Listmonk list **#4** “US - Tech Companies - Purchased Leads” ~10k — never for Electrik)  
 - Zip delivery via Dodo (sell license + install link)
 
-**Paid is not banned** — it is **gated**. First paid test (if unlocked): Laravel Daily $200 mention or LN sponsored post ≤~$500. Rules in [`distribution-channels.md`](distribution-channels.md).
+**Paid is not banned** — it is **gated**. First paid tests (if unlocked): **Google Search ≤ $200** and/or **OpenAI/ChatGPT Ads ≤ $100–150** (combined ceiling ~$250–300). Daily $200 is P2. Rules in [`distribution-channels.md`](distribution-channels.md).
 
 ---
 
@@ -142,6 +142,30 @@ Cap marketing at ~5 hours/week if product work is primary. Consistency beats her
 - **Authority:** UNBREAKABLE agent-boss rule locked in `.cursor/rules/agent-owner-human-for-hire.mdc`
 - **License policy:** Solo/Studio = major line at purchase (5.x + minors); next major = new grant / published upgrade (not DRM)
 
+### 2026-09-08
+- **Tue pulse:** demo `/login` **200**; Packagist electrik **13** / slate **104**; GH electrik **299★** / slate **27★**
+- Dodo: still only Solo $0 verify — **0 nonzero paid**
+- **Agency outreach +4 via Resend:** Tighten (`2b4bdb8e…`) · Kirschbaum (`4303626f…`) · Acquaint (`07d5c5e3…`) · byte5 (`1d824695…`) — week total ~**7** notes
+- Decision locked: **no Slate Pro** this quarter (Slate stays free bait → Electrik paid)
+- Next: **Wed** Jetstream compare amplify → https://electrik.dev/compare/electrik-vs-jetstream (+ pricing)
+
+### 2026-09-07
+- **Mon metrics:** demo `/login` 200; Packagist electrik **12** / slate **102**; GH electrik **297★**; Dodo still only Solo $0 verify (no new paid)
+- Listmonk Electrik #11 = **79**; Slate #15 = **1** (verify sub)
+- **Phase B week 2 ship:** Install Clipy X — https://x.com/electrikhq/status/2096849840575832351
+- **Resend:** domain `updates.electrik.dev` **verified** (Cloudflare / Tokyo); key in `.env` (`RESEND_KEY`); helper `marketing/ops/resend.cjs`
+- **Outreach sent via Resend:** Steadfast (`876b070d…`) + Redberry (`9851ada6…`); founder copy `b823e748…`; Jump24 blocked by reCAPTCHA → ORDER
+- **LN Slate live:** https://laravel-news.com/link/18766 (5:00am ET) — ~**15 clicks** by evening IST
+- **LN amplify X:** https://x.com/electrikhq/status/2096911312165146696
+- Slate themes playground + Flux-style chips shipped earlier today
+- Note: X pin fixed to Solo **$99** / Studio **$149** (was obsolete $149/$399)
+- Next: Wed Jetstream compare amplify
+
+### 2026-09-06
+- Daily pulse (Sun): demo `/login` 200; Packagist electrik **12** / slate **95**
+- Install Clipy X copy finalized in `content-queue.md` (ship Mon/Wed — not same week as licenses-live)
+- `outreach.csv` seeded (Jump24, Steadfast, Tighten, Redberry + GitHub engagers queue) — status drafted
+- LN Slate still scheduled **2026-09-07 05:00**
 ---
 
 ## License policy (boss)

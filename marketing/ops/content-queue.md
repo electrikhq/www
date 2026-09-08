@@ -28,21 +28,14 @@ Pricing: https://electrik.dev/pricing
 Install: https://electrik.dev/install
 ```
 
-### X — 60s / 2‑min install (Clipy)
+### X — 60s / 2‑min install (Clipy) — SHIPPED 2026-09-07
+
+**Live:** https://x.com/electrikhq/status/2096849840575832351
 
 ```
-Electrik in ~2 minutes:
+Electrik install → Studio in ~2 min: composer require, teams, Stripe on the team. Composer package, not a scaffold dump.
 
-composer require electrik/electrik
-→ Livewire dashboard
-→ teams
-→ Stripe on the team
-
-Laravel SaaS as a package, not a scaffold dump.
-
-Walkthrough: https://clipy.online/video/5rpdlm7ajzs5
-Install: https://electrik.dev/install
-Demo: https://demo.electrik.dev
+Walkthrough https://clipy.online/video/5rpdlm7ajzs5 · Install https://electrik.dev/install · Demo https://demo.electrik.dev
 ```
 
 ## Drafts
@@ -73,11 +66,13 @@ Checkout: https://electrik.dev/pricing
 ```
 Electrik vs Jetstream, short version:
 
-Jetstream = official auth/teams scaffold. You own every file. No Stripe billing.
+Jetstream = official auth/teams scaffold. You own every file. No Stripe billing. Agents edit dumped code forever.
 
-Electrik = Composer package with teams + Stripe on the team + Slate UI. BSL grant for indies; Solo/Studio when you need commercial.
+Electrik = Composer package (teams + Stripe on the team + Slate). Cursor/Claude extend App\ — shell stays updatable. AI docs: electrik.dev/docs/getting-started/ai
 
-Matrix + “when to pick each”:
+BSL grant for indies; Solo/Studio when you need commercial.
+
+Matrix:
 https://electrik.dev/compare/electrik-vs-jetstream
 ```
 
@@ -104,6 +99,8 @@ Happy to answer install questions.
 
 ## Shipped
 
+- 2026-09-07 — LN Slate amplify X @electrikhq — https://x.com/electrikhq/status/2096911312165146696
+- 2026-09-07 — Install Clipy X @electrikhq — https://x.com/electrikhq/status/2096849840575832351
 - 2026-09-04 — Licenses-live X @electrikhq — https://x.com/electrikhq/status/2095807473953505626
 - 2026-09-04 — Homepage conversion reorder live; content queue prices corrected to $99/$149
 - 2026-08-24 — Slate→Electrik bridge (slate homepage CTA, docs, `/install` callout, READMEs) — pushed all repos

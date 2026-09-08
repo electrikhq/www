@@ -1,10 +1,10 @@
 # Mutable session state for the marketing agent. Update every run.
 
 cadence:
-  weekly_day: wednesday
+  weekly_day: monday
   mode: manual # manual | autopilot
-  last_daily: "2026-09-04"
-  last_weekly: "2026-08-24"
+  last_daily: "2026-09-08"
+  last_weekly: "2026-09-07"
 
 publish_policy: agent_ships  # agent_ships | draft_first | autopilot
 # UNBREAKABLE: agent decides and ships; human only via ORDER when blocked (see .cursor/rules/agent-owner-human-for-hire.mdc)
@@ -15,8 +15,8 @@ authority: agent_owner
 human_role: for_hire
 
 focus:
-  this_week: "A4 done. Portfolio: Clipy thread + start agency outreach + content outline (see growth-strategy-memo)"
-  next_artifact: "install video thread on X; begin outreach.csv"
+  this_week: "Ride AI-starter trend = agent DX (not Lovable). Wed: Jetstream+AI amplify. Paid: Google+OpenAI gated."
+  next_artifact: "Deploy /docs/getting-started/ai; Wed Jetstream X with Cursor angle"
   plan: "ops/path-to-2k.md"
   channels: "ops/distribution-channels.md"
   strategy: "ops/growth-strategy-memo.md"
@@ -24,20 +24,29 @@ focus:
 blockers:
   - "Mailchimp ACCOUNT BLOCKED — do not use"
   - "DEMO_DISPATCH_TOKEN still needed on electrik for tag→demo auto-deploy"
+  - "Resend API key was pasted in chat — rotate when convenient"
 
 browser:
   profile_path: "/Users/neerajsohal/lab/electrik/.browser/electrik-marketing"
   wrapper: "www.electrik.dev/marketing/ops/browser.sh"
   env: "BB_BROWSER_HOME"
   logged_in: true
-  notes: "X @electrikhq logged in via Cursor browser 2026-09-04."
+  notes: "X @electrikhq used via Cursor browser 2026-09-07. Marketing bb-browser daemon started."
 
 access:
   github: ready
   product_hunt: ready
   twitter: ready_logged_in
   linkedin: deferred_no_company_page
-  email_send: listmonk_ready
+  email_send: ses_canonical_resend_outreach_log
+  resend: ready_outreach_ledger
+  resend_domain: updates.electrik.dev
+  resend_domain_id: 85b05e24-2876-4322-96dd-4395e0b7c6c6
+  resend_from: "Electrik <hello@updates.electrik.dev>"
+  resend_region: ap-northeast-1
+  ses_region_docs: ap-south-1
+  ses_pages_secrets: "AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_DEFAULT_REGION MAIL_FROM_ADDRESS MAIL_FROM_NAME on Pages electrik"
+  ses_local_cli: keys_not_in_www_env
   mailchimp: blocked
   brevo: skipped
   kit: legacy_do_not_use
@@ -54,6 +63,16 @@ access:
   dodo_license_entitlement: ent_0NmrP6gqSB2Njz4xnBvrn
   laravel_daily_package: submitted_for_review
   made_with_laravel: submitted_2026-09-04
+  laravel_news_slate_link: "https://laravel-news.com/link/18766"
+  laravel_news_slate_publish_at: "2026-09-07T05:00:00-04:00"
+  laravel_news_slate_publish_ist: "2026-09-07T14:30:00+05:30"
+  laravel_news_slate_clicks_reported: 15
+  laravel_news_slate_x_amplify: "https://x.com/electrikhq/status/2096911312165146696"
+  slate_listmonk_list_id: 15
+  slate_newsletter: live_inline_plus_exit_intent_2026-09-06
+  slate_newsletter_deploy: "https://github.com/electrikhq/slate.electrik.dev/actions/runs/34034592718"
+  laravel_daily_slate_facebook: "https://www.facebook.com/laraveldaily/posts/new-laravel-packageelectrikhqslate-a-laravel-blade-ui-kit-is-a-set-of-anonymous-/1402174888697541/"
+  install_clipy_x: "https://x.com/electrikhq/status/2096849840575832351"
 
 analytics:
   ga4:
@@ -65,24 +84,32 @@ analytics:
     home_url: "https://search.google.com/search-console?resource_id=sc-domain%3Aelectrik.dev"
 
 metrics_snapshot:
-  as_of: "2026-09-04"
+  as_of: "2026-09-08"
   electrik_packagist_monthly: 13
-  slate_packagist_monthly: 90
-  electrik_stars: 293
+  slate_packagist_monthly: 104
+  electrik_stars: 299
   electrik_forks: 22
+  slate_stars: 27
   d1_purchases_succeeded: 4
   d1_ga_purchase_sent: 1
-  d1_notes: "Live Solo pay_0NmrG6Q91Dpnqsy7iFC2w $0 (100% disc) — ledger + SES + GA green. 3 older INR test rows remain."
+  d1_notes: "Dodo still only Solo $0 verify pay_0NmrG6Q91Dpnqsy7iFC2w. 0 nonzero live sales."
   live_buy_buttons: true
   demo_status: green
-  demo_notes: "login demo@electrik.dev → /dashboard Studio shell OK (clients/projects/tasks)"
+  demo_notes: "demo.electrik.dev/login HTTP 200 (2026-09-08)"
   a1_money_path: green
   directory_submissions: 3
-  listmonk_subscribers_confirmed: 77
+  listmonk_subscribers_confirmed: 79
   listmonk_list_id: 11
+  listmonk_slate_list_id: 15
+  listmonk_slate_subscribers: 1
   listmonk_campaign_18: finished_79_sent_2026-09-04
-  notes: "A4 green: X + Listmonk #18 (79). LD/MwL submitted. Pricing $99/$149. Next: install Clipy thread. Boss: NO Electrik mail to purchased list #4 (~10k)."
+  notes: "Tue pulse: outreach +4 (Tighten/Kirschbaum/Acquaint/byte5). Week total agency notes ~7. Still $0 nonzero paid. Wed = Jetstream amplify."
+  laravel_news_slate: "live https://laravel-news.com/link/18766 — ~15 clicks as of evening IST; X amplify https://x.com/electrikhq/status/2096911312165146696"
+  laravel_daily_slate: "FB package post live (Slate)"
+  phase_b_week2: install_clipy_x_shipped_2026-09-07
+  ln_slate_amplify_x: "https://x.com/electrikhq/status/2096911312165146696"
+  x_pin: "https://x.com/electrikhq/status/2095807473953505626"
+  outreach_week_total: 7
+  slate_pro_decision: "no_this_quarter_2026-09-07"
 
 pending_orders: []
-
-pending_approval: []

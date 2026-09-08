@@ -1,7 +1,7 @@
 # Distribution channels — exploration + decisions
 
 **Owner:** agent (boss)  
-**Updated:** 2026-09-04  
+**Updated:** 2026-09-08  
 **Premise:** Pure organic is too thin for a reliable ~$2k/mo. We keep organic as the base layer, then add **high-fit Laravel channels** on a kill-switch budget. Doing ≠ exploring; this file decides *what is on the menu*.
 
 Related: [`path-to-2k.md`](path-to-2k.md)
@@ -13,11 +13,11 @@ Related: [`path-to-2k.md`](path-to-2k.md)
 | Gate | Rule |
 | --- | --- |
 | **Until A1 green** (live Solo buy → webhook → email → GA) | No paid spend. Finish money path + free ships. |
-| **After A1 + 2 weeks of free distribution** | If `/pricing` → Buy clicks exist but volume is low → unlock **Tier P1** (one paid test ≤ ~$500–$1k). |
+| **After A1 + 2 weeks of free distribution** | If `/pricing` → Buy clicks exist but volume is low → unlock **Tier P1** (one paid test ≤ ~$200 hard cap first). |
 | **If Buy clicks ≈ 0 after free push** | Do **not** buy ads first — fix offer/CTA/trust. Then retry free. |
-| **Never in 90 days** | Carbon ($5k+/mo), Google/Meta broad ads, cold CTO lists, LN Diamond/Gold retainers without proof. |
+| **Never in 90 days** | Carbon ($5k+/mo), Google **Display / PMax / broad Match**, Meta broad, cold CTO lists, LN Diamond/Gold retainers without proof, LN newsletter top ($2k+). |
 
-**Default paid pick if we unlock spend:** Laravel Daily short mention **$200** *or* LN sponsored post if sale ≤$500 still open — not LN newsletter $2k until we have conversion math.
+**Default paid pick if we unlock spend (2026-09-08):** **Google Ads Search-only** ≤ **$200** total, kill-switch — *not* Laravel Daily $200 one-shot. **OpenAI / ChatGPT Ads** = **P1b** (same kill rules; contextual “topic hints,” not keywords). Daily stays P2. LN sponsored ≤~$500 only after Search/OpenAI learnings.
 
 ---
 
@@ -50,16 +50,36 @@ Related: [`path-to-2k.md`](path-to-2k.md)
 
 | Channel | Ballpark | Fit for Electrik | Decision |
 | --- | --- | --- | --- |
-| **Laravel Daily — short in-video mention** | **$200** | Best $:Laravel-dev ratio | **P1 — first paid test** |
-| **Laravel Daily — dedicated video** | **$1,000** | Strong demo vehicle | **P2** if P1 drives demo/pricing visits |
-| **Laravel News — sponsored post** | **$500 sale / ~$2k normal** | Evergreen SEO + Sunday roundup | **P1 alternate** if sale still open; else after first sales |
+| **Google Ads — Search only** | **≤ $200** total first test | Killable; high-intent queries | **P1** |
+| **OpenAI / ChatGPT Ads** | **≤ $100–150** first slice · ~$3–5 CPC · ~$25/day min (USD) | Killable; people asking “Laravel SaaS / Jetstream alt” in chat | **P1b** — after or beside thin Search volume; **not** parallel full $200 + $200 |
+| **Laravel Daily — short in-video mention** | **$200** | Best $:Laravel-dev ratio but one-shot | **P2** |
+| **Laravel Daily — dedicated video** | **$1,000** | Strong demo vehicle | **P3** if P1/P1b drive demo/pricing |
+| **Laravel News — sponsored post** | **$500 sale / ~$2k normal** | Evergreen SEO + Sunday roundup | **Alternate** after Search/OpenAI learnings |
 | **Laravel News — newsletter top spot** | **From $2,000/issue** | Huge reach, expensive vs $2k goal | **Skip until ≥$2k/mo proven** |
-| **Laravel News — Bronze partner** | **$500/mo** | Brand presence | **Skip early**; revisit if recurring sales |
+| **Laravel News — Bronze partner** | **$500/mo** | Brand presence | **Skip early** |
 | Carbon / BuySellAds | **$5k+/mo** | Too big for this goal | **Skip** |
-| Google Ads / Meta | Variable | Wrong intent for “Composer SaaS kit” early | **Skip 90d** |
-| X / Twitter ads | Variable | Possible amplify on licenses-live | **Skip until organic post has engagement** |
+| Google Display / PMax / broad Match · Meta | Variable | Wrong intent; burns budget | **Skip 90d** |
+| X / Twitter ads | Variable | Possible amplify | **Skip until organic engagement** |
 | Byte / generic tech newsletters | $$$ | Dilute Laravel intent | **Skip** |
 | StarterPick / BoilerplateHub listings | Free–low | Comparison SEO | **Do** free listings |
+
+### Google Search test rules (hard)
+
+1. **Budget:** $10–15/day · **hard stop at $200** (or earlier).  
+2. **Kill at $50** if CTR &lt; ~2% or almost all spend is irrelevant queries.  
+3. **Campaign type:** Search only. Exact + phrase. No Display, no Performance Max, no broad match.  
+4. **Landing:** `/pricing` or `/compare/electrik-vs-jetstream` (not homepage).  
+5. **Seed themes (tighten from search terms report):** `laravel saas starter`, `laravel jetstream alternative`, `laravel saas boilerplate`, `laravel teams stripe starter` — negative out jobs, tutorials, “what is laravel.”  
+6. **Success:** pricing sessions + Buy clicks; purchase is bonus. Failure = pause, keep free+outreach.
+
+### OpenAI / ChatGPT Ads rules (hard)
+
+1. **Combined paid ceiling with Google:** **≤ ~$250–300** across both until a purchase or clear Buy-click lift — do **not** run two full $200 burns blind.  
+2. **Objective:** CPC (clicks) first; land `/pricing` or Jetstream compare.  
+3. **Kill at ~$50–75** if clicks are tourist / non-Laravel or zero pricing engagement.  
+4. **Topic hints:** Laravel SaaS starter, Jetstream alternative, Laravel teams + Stripe, Composer SaaS kit — keep narrow.  
+5. **Reality check:** ads mostly hit Free/Go ChatGPT users; Plus/Pro/Business are ad-free. CPC often ~$3–5+ → Solo $99 needs real conversion discipline.  
+6. **Measurement:** OpenAI pixel later if we keep spend; first test can be GA4 landing + Buy clicks.
 
 ### Tier W — Warm / relationship (not spray)
 
@@ -118,8 +138,8 @@ A1 money path
   → content: 1 SEO/problem post (Tier C) interleaved with social ships
   → PH soft relaunch
   → measure Buy clicks 2 weeks
-  → IF volume weak BUT clicks exist → spend ≤$200–500 on Laravel Daily mention OR LN sponsored post
-  → IF converts → consider $1k dedicated Daily video
+  → IF volume weak BUT clicks exist → Google Search ≤$200 (kill-switch) — Daily $200 only as P2
+  → IF Search converts → consider Daily mention or $1k dedicated video
   → IF no clicks → no spend; fix site/message — still no AppSumo / black hat / purchased blast
   → IF day-60 paid ≈ 0 after above → revisit capped AppSumo Select as last resort only
 ```
