@@ -48,6 +48,10 @@
 
 ## Related
 
+- [Resources](https://electrik.dev/resources): Laravel SaaS starter kit, SaaS boilerplate, and build guides.
+- [Laravel SaaS starter kit](https://electrik.dev/resources/laravel-saas-starter-kit): Package-first starter guide.
+- [SaaS boilerplate](https://electrik.dev/resources/saas-boilerplate): Zip dump vs Composer package.
+- [Build a Laravel SaaS](https://electrik.dev/resources/build-laravel-saas): Package-first build path.
 - [Slate UI docs](https://slate.electrik.dev): Blade components and tokens (do not re-host here).
 - [License](https://electrik.dev/license): BSL Additional Use Grant.
 - [Pricing](https://electrik.dev/pricing): Commercial tiers.

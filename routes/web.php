@@ -124,6 +124,18 @@ Route::get('/tools/tailwind-color-generator', fn () => view('pages.tools.tailwin
     ->name('tools.tailwind-color-generator');
 Route::redirect('/tools/tailwindcss-color-scheme-generator', '/tools/tailwind-color-generator');
 
+Route::get('/resources', fn () => view('pages.resources.index'))->name('resources.index');
+Route::get('/resources/{slug}', function (string $slug) {
+    $page = \App\Support\Resources::find($slug);
+
+    if ($page === null) {
+        abort(404);
+    }
+
+    return view('pages.resources.show', ['page' => $page]);
+})->whereIn('slug', \App\Support\Resources::slugs())->name('resources.show');
+Route::redirect('/resources/laravel-saas-boilerplate', '/resources/laravel-saas-starter-kit', 301);
+
 Route::get('/compare', fn () => view('pages.compare.index'))->name('compare.index');
 Route::get('/compare/electrik-vs-{slug}', function (string $slug) {
     $competitor = \App\Support\Compare::find($slug);

@@ -142,6 +142,33 @@ Cap marketing at ~5 hours/week if product work is primary. Consistency beats her
 - **Authority:** UNBREAKABLE agent-boss rule locked in `.cursor/rules/agent-owner-human-for-hire.mdc`
 - **License policy:** Solo/Studio = major line at purchase (5.x + minors); next major = new grant / published upgrade (not DRM)
 
+### 2026-09-08 (SEO resources shipped)
+- Built `/resources` hub + 3 guides: laravel-saas-starter-kit, saas-boilerplate, build-laravel-saas
+- 301: `/resources/laravel-saas-boilerplate` → starter-kit page
+- Nav + footer + llms.txt + export paths/sitemap inputs wired
+- Next: Wed Jetstream amplify; later Larafast-alternative resource if needed
+
+### 2026-09-08 (Keyword Planner + Trends MoM/YoY)
+- Human pasted Superlemon KP plan (all locations). Canvas: `electrik-keyword-demand.canvas.tsx`
+- **Absolute (KP):** `saas boilerplate` **1k–10k** · `saas starter kit` / `laravel saas starter kit` / `larafast` / `laravel spark` / `openai saas` **100–1k** · `ai saas` **1k–10k** · `ai boilerplate` / `cursor saas` **10–100** · `jetstream alternative` / `ai saas starter` **—** · `shipfast` **10k–100k** (polluted — ignore for bidding)
+- **Trends MoM (WW relative, openai saas on same chart):** May peak openai **88** / ai boilerplate **8** → Jul **37/4** → Aug **13/1** → early Sep **6/1** — AI terms **cooling**, not accelerating
+- **YoY:** Sep 2025 openai ~**37** vs early Sep 2026 ~**6** (down after spring spike); saas boilerplate soft (~6 → ~1 relative)
+- **Call:** paid Search → Laravel kit / boilerplate seeds; Agent DX = docs not keywords; no AI-chat product rebuild for a fading spike
+
+### 2026-09-08 (clarity / demand data)
+- **Keyword Planner:** logged into Ads CID `707-599-7930` — UI blocked by **ad blocker** overlay (cannot pull absolute volumes until disabled for ads.google.com)
+- **Google Trends (WW, 12mo averages):** `saas boilerplate` **43** · `ai boilerplate` **44** · `laravel spark` **22** · `makerkit` **15** · `larafast` **0** (below Trends threshold) · `laravel saas starter` / `ai saas starter` / `cursor boilerplate` insufficient data
+- Rising related to saas boilerplate: django saas boilerplate +180%, makerkit +100%, supastarter +100%
+- **GSC electrik.dev (~3mo):** 40 clicks · 3.41k impr · CTR 1.2% · avg pos 18.1 — queries: `electrik` 11/1568 · `laravel saas starter kit free` 4/26 · `laravel saas kit` 1/108 · `laravel saas starter kit` 1/89 · `laravel saas` **0/427** (impressions without clicks)
+- Clarity still needed: KP absolute volumes (after adblock) · GA Buy clicks · 5 buyer interviews
+
+### 2026-09-08 (AI trends research)
+- Researched two distinct “AI starter” bets with vendor sources (not SERP alone): **A Agent DX** vs **B AI product features** (chat/RAG/credits)
+- Evidence: MakerKit/TurboStarter/supastarter sell A hard; B is optional/upsell (Turbo AI Kit) or billing-depth (MakerKit meters) or Larafast OpenAI helpers; ShipFast skips B and still wins solo mindshare
+- Correction: Electrik already has Stripe **metered usage** — gap is chat/credits UX, not metering primitive
+- Canvas: `electrik-ai-trends-research.canvas.tsx`
+- Call: raise A + document meter-for-AI; defer B2/B3 unless buyers ask
+
 ### 2026-09-08
 - **Tue pulse:** demo `/login` **200**; Packagist electrik **13** / slate **104**; GH electrik **299★** / slate **27★**
 - Dodo: still only Solo $0 verify — **0 nonzero paid**

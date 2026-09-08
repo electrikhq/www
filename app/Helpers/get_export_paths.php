@@ -13,6 +13,7 @@ $paths = [
     'legal',
     'tools',
     'tools/tailwind-color-generator',
+    'resources',
     'compare',
 ];
 
@@ -22,6 +23,10 @@ foreach (['privacy', 'terms', 'cookies', 'trademark', 'dmca'] as $legalSlug) {
 
 foreach (['jetstream', 'spark', 'wave', 'saasykit', 'larafast', 'filament'] as $compareSlug) {
     $paths[] = 'compare/electrik-vs-'.$compareSlug;
+}
+
+foreach (['laravel-saas-starter-kit', 'saas-boilerplate', 'build-laravel-saas'] as $resourceSlug) {
+    $paths[] = 'resources/'.$resourceSlug;
 }
 
 $docsPath = __DIR__.'/../../resources/content/docs';

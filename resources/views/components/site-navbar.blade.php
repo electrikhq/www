@@ -16,6 +16,7 @@
         ['label' => 'Docs', 'href' => route('docs.show')],
         ['label' => 'Install', 'href' => route('install')],
         ['label' => 'Pricing', 'href' => route('pricing')],
+        ['label' => 'Resources', 'href' => route('resources.index')],
         ['label' => 'Tools', 'href' => route('tools.index')],
         ['label' => 'Compare', 'href' => route('compare.index')],
         ['label' => 'License', 'href' => route('license')],

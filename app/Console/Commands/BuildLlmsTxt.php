@@ -76,6 +76,10 @@ class BuildLlmsTxt extends Command
         $lines[] = '';
         $lines[] = '## Related';
         $lines[] = '';
+        $lines[] = '- [Resources]('.$base.'/resources): Laravel SaaS starter kit, SaaS boilerplate, and build guides.';
+        $lines[] = '- [Laravel SaaS starter kit]('.$base.'/resources/laravel-saas-starter-kit): Package-first starter guide.';
+        $lines[] = '- [SaaS boilerplate]('.$base.'/resources/saas-boilerplate): Zip dump vs Composer package.';
+        $lines[] = '- [Build a Laravel SaaS]('.$base.'/resources/build-laravel-saas): Package-first build path.';
         $lines[] = '- [Slate UI docs](https://slate.electrik.dev): Blade components and tokens (do not re-host here).';
         $lines[] = '- [License]('.$base.'/license): BSL Additional Use Grant.';
         $lines[] = '- [Pricing]('.$base.'/pricing): Commercial tiers.';
