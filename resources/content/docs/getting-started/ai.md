@@ -21,6 +21,12 @@ We are **not** a prompt-to-app builder (Lovable / Bolt). We are the shell you ke
 
 Point agents at the docs index before they invent routes or dump Jetstream patterns.
 
+## AGENTS.md
+
+The package ships [`AGENTS.md`](https://github.com/electrikhq/electrik/blob/main/AGENTS.md) at the repo root (also under `vendor/electrik/electrik/AGENTS.md` after install). Coding agents should read it first: install sequence, package-vs-`App\` boundary, Stripe-on-the-team rule, and what not to invent.
+
+Slate has its own [`AGENTS.md`](https://github.com/electrikhq/slate/blob/main/AGENTS.md) for Blade UI.
+
 ## llms.txt
 
 - [/llms.txt](/llms.txt) — curated index  
@@ -39,9 +45,9 @@ Slate UI has its own agent surface: [slate.electrik.dev/docs/ai](https://slate.e
 
 ```text
 Install and customize Electrik 5.x as a Composer package (not a scaffold dump).
-Read https://electrik.dev/llms.txt first, then the installation and architecture docs.
+Read AGENTS.md in the Electrik package and https://electrik.dev/llms.txt first, then installation + architecture docs.
 Keep auth/teams/billing in the Electrik namespace; put product code in App\.
-UI: Electrik Slate anonymous components — see https://slate.electrik.dev/llms.txt
+UI: Electrik Slate anonymous components — see https://slate.electrik.dev/llms.txt (MCP: https://mcp.slate.electrik.dev)
 ```
 
 ## What we are not shipping (on purpose)

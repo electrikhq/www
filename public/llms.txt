@@ -8,7 +8,8 @@
 - [Quickstart](https://electrik.dev/docs/getting-started/quickstart): Fastest path to a running app.
 - [Installation](https://electrik.dev/docs/getting-started/installation): `electrik:install` deep dive.
 - [Architecture](https://electrik.dev/docs/getting-started/architecture): Package vs App, teams as tenant.
-- [AI & agents](https://electrik.dev/docs/getting-started/ai): Cursor/Claude with Electrik — llms.txt, skills, package-safe rules.
+- [AI & agents](https://electrik.dev/docs/getting-started/ai): Cursor/Claude with Electrik — AGENTS.md, llms.txt, skills, package-safe rules.
+- [AGENTS.md on GitHub](https://github.com/electrikhq/electrik/blob/main/AGENTS.md): Package-root rules for coding agents.
 - [Install page](https://electrik.dev/install): Marketing quickstart.
 
 ## Core concepts
