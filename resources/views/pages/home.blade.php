@@ -1,52 +1,72 @@
 @extends('layouts.www')
 
 @section('content')
-{{-- 1. Hero + 2. Product proof --}}
+@php
+    $composerInstall = 'composer require electrik/electrik:^5.0';
+    $agentPrompt = <<<'PROMPT'
+Install Electrik 5.x as a Composer package.
+Read https://electrik.dev/llms.txt and https://electrik.dev/docs/getting-started/ai first.
+Keep the shell in vendor; put product code in App\. Do not dump Jetstream/Breeze-style auth into App\.
+PROMPT;
+@endphp
+
+{{-- 1. Hero: Agent DX + 2. Product proof --}}
 <section class="relative overflow-hidden px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-16">
     <div
         class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,color-mix(in_oklch,var(--slate-foreground)_8%,transparent),transparent)]"
         aria-hidden="true"
     ></div>
     <div class="mx-auto max-w-3xl text-center">
-        <div class="mb-6 flex justify-center">
-            <x-slate::badge variant="secondary">
-                {{ config('site.version') }} on Laravel 12 + Slate 3
-            </x-slate::badge>
-        </div>
+        <p class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Electrik
+        </p>
 
-        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Ship Laravel SaaS with teams, Stripe, and a real UI kit
+        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
+            Paste one prompt. Agents install Laravel SaaS the right way.
         </h1>
 
         <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Electrik is a Composer package: auth, team workspaces, Stripe subscriptions, onboarding, and Slate 3.
-            Full features in source. $0 grant for indie/OSS; commercial licenses from $99.
+            Composer package for teams, Stripe, and Slate — with AGENTS.md so Cursor and Claude keep the shell in vendor and write product in <code class="rounded bg-muted px-1.5 py-0.5 text-sm">App\</code>.
         </p>
 
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <x-slate::button as="a" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
-                Try the demo
-                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-            </x-slate::button>
-            <x-slate::button as="a" variant="outline" href="{{ route('install') }}">
-                Install guide
-            </x-slate::button>
+        <div
+            class="mx-auto mt-8 max-w-2xl text-left"
+            x-data="{ copied: false, text: @js($agentPrompt) }"
+        >
+            <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cursor / Claude prompt</p>
+            <pre class="mt-2 max-h-40 overflow-auto rounded-lg bg-muted px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap text-foreground"><code x-text="text"></code></pre>
+            <div class="mt-4 flex flex-wrap items-center gap-3">
+                <x-slate::button
+                    type="button"
+                    x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+                >
+                    <span x-text="copied ? 'Copied' : 'Copy prompt'"></span>
+                </x-slate::button>
+                <x-slate::button as="a" variant="outline" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
+                    Try the demo
+                </x-slate::button>
+            </div>
         </div>
 
-        <p class="mt-5 text-base text-muted-foreground">
-            <code class="rounded bg-muted px-1.5 py-0.5 text-sm">composer require electrik/electrik</code>
-            <span class="mx-2 text-border" aria-hidden="true">·</span>
-            <a href="#install-with-agents" class="underline underline-offset-4 hover:text-foreground">or paste into Cursor</a>
-            <span class="mx-2 text-border" aria-hidden="true">·</span>
-            <a href="{{ route('pricing') }}" class="underline underline-offset-4 hover:text-foreground">Pricing</a>
-            <span class="text-muted-foreground/80"> — from $0 grant · commercial from $99</span>
-            <span class="mx-2 text-border" aria-hidden="true">·</span>
-            <a href="https://clipy.online/video/5rpdlm7ajzs5" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">2‑min video</a>
-            <span class="mx-2 text-border" aria-hidden="true">·</span>
+        <div
+            class="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base text-muted-foreground"
+            x-data="{ copied: false, text: @js($composerInstall) }"
+        >
+            <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-lg bg-muted px-3 py-1.5 text-sm text-foreground hover:bg-muted/80"
+                x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+            >
+                <code x-text="text"></code>
+                <span class="text-xs text-muted-foreground" x-text="copied ? 'Copied' : 'Copy'"></span>
+            </button>
+            <span class="text-border" aria-hidden="true">·</span>
+            <a href="{{ route('pricing') }}" class="underline underline-offset-4 hover:text-foreground">Pricing from $0</a>
+            <span class="text-border" aria-hidden="true">·</span>
+            <a href="{{ url('/docs/getting-started/ai') }}" class="underline underline-offset-4 hover:text-foreground">Agent DX docs</a>
+            <span class="text-border" aria-hidden="true">·</span>
             <a href="{{ config('site.github_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">GitHub</a>
-        </p>
+        </div>
 
         <div class="mt-8">
             <x-product-hunt-badge />
@@ -183,68 +203,14 @@
     </div>
 </section>
 
-{{-- 6. How install works --}}
-@php
-    $composerInstall = 'composer require electrik/electrik:^5.0';
-    $agentPrompt = <<<'PROMPT'
-Install Electrik 5.x as a Composer package.
-Read https://electrik.dev/llms.txt and https://electrik.dev/docs/getting-started/ai first.
-Keep the shell in vendor; put product code in App\. Do not dump Jetstream/Breeze-style auth into App\.
-PROMPT;
-@endphp
+{{-- 6. How install works (proof video; copy blocks live in hero) --}}
 <section id="install-with-agents" class="scroll-mt-24 px-4 py-16 sm:px-6">
     <div class="mx-auto max-w-4xl">
         <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-semibold tracking-tight">Install in minutes</h2>
+            <h2 class="text-2xl font-semibold tracking-tight">Then run the installer</h2>
             <p class="mt-3 text-muted-foreground">
-                Composer package, not a dump repo — by hand or with Cursor / Claude Code.
+                Same path whether you paste the agent prompt or type Composer yourself.
             </p>
-        </div>
-
-        <div class="mx-auto mt-10 grid max-w-3xl gap-8 sm:grid-cols-2">
-            <div
-                class="border-t-2 border-foreground pt-5"
-                x-data="{ copied: false, text: @js($composerInstall) }"
-            >
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Terminal</p>
-                <p class="mt-2 text-base text-muted-foreground">Require the package, then run the installer.</p>
-                <pre class="mt-4 overflow-x-auto rounded-lg bg-muted px-3 py-3 text-left text-sm text-foreground"><code x-text="text"></code></pre>
-                <div class="mt-3 flex flex-wrap items-center gap-3">
-                    <x-slate::button
-                        type="button"
-                        size="sm"
-                        variant="outline"
-                        x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
-                    >
-                        <span x-text="copied ? 'Copied' : 'Copy command'"></span>
-                    </x-slate::button>
-                    <a href="{{ route('install') }}" class="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
-                        Full guide
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="border-t-2 border-border pt-5"
-                x-data="{ copied: false, text: @js($agentPrompt) }"
-            >
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cursor / agent</p>
-                <p class="mt-2 text-base text-muted-foreground">Open a fresh Laravel app and paste this prompt.</p>
-                <pre class="mt-4 max-h-36 overflow-auto rounded-lg bg-muted px-3 py-3 text-left text-sm leading-relaxed whitespace-pre-wrap text-foreground"><code x-text="text"></code></pre>
-                <div class="mt-3 flex flex-wrap items-center gap-3">
-                    <x-slate::button
-                        type="button"
-                        size="sm"
-                        variant="outline"
-                        x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
-                    >
-                        <span x-text="copied ? 'Copied' : 'Copy prompt'"></span>
-                    </x-slate::button>
-                    <a href="{{ url('/docs/getting-started/ai') }}" class="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
-                        Agent DX docs
-                    </a>
-                </div>
-            </div>
         </div>
 
         <ol class="mx-auto mt-10 max-w-xl space-y-4 text-base text-foreground">
