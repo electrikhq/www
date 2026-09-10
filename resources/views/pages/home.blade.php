@@ -38,6 +38,8 @@
         <p class="mt-5 text-base text-muted-foreground">
             <code class="rounded bg-muted px-1.5 py-0.5 text-sm">composer require electrik/electrik</code>
             <span class="mx-2 text-border" aria-hidden="true">·</span>
+            <a href="#install-with-agents" class="underline underline-offset-4 hover:text-foreground">or paste into Cursor</a>
+            <span class="mx-2 text-border" aria-hidden="true">·</span>
             <a href="{{ route('pricing') }}" class="underline underline-offset-4 hover:text-foreground">Pricing</a>
             <span class="text-muted-foreground/80"> — from $0 grant · commercial from $99</span>
             <span class="mx-2 text-border" aria-hidden="true">·</span>
@@ -182,27 +184,81 @@
 </section>
 
 {{-- 6. How install works --}}
-<section class="px-4 py-16 sm:px-6">
+@php
+    $composerInstall = 'composer require electrik/electrik:^5.0';
+    $agentPrompt = <<<'PROMPT'
+Install Electrik 5.x as a Composer package.
+Read https://electrik.dev/llms.txt and https://electrik.dev/docs/getting-started/ai first.
+Keep the shell in vendor; put product code in App\. Do not dump Jetstream/Breeze-style auth into App\.
+PROMPT;
+@endphp
+<section id="install-with-agents" class="scroll-mt-24 px-4 py-16 sm:px-6">
     <div class="mx-auto max-w-4xl">
         <div class="mx-auto max-w-2xl text-center">
             <h2 class="text-2xl font-semibold tracking-tight">Install in minutes</h2>
             <p class="mt-3 text-muted-foreground">
-                Composer package, not a dump repo. Your app stays yours.
+                Composer package, not a dump repo — by hand or with Cursor / Claude Code.
             </p>
+        </div>
+
+        <div class="mx-auto mt-10 grid max-w-3xl gap-8 sm:grid-cols-2">
+            <div
+                class="border-t-2 border-foreground pt-5"
+                x-data="{ copied: false, text: @js($composerInstall) }"
+            >
+                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Terminal</p>
+                <p class="mt-2 text-base text-muted-foreground">Require the package, then run the installer.</p>
+                <pre class="mt-4 overflow-x-auto rounded-lg bg-muted px-3 py-3 text-left text-sm text-foreground"><code x-text="text"></code></pre>
+                <div class="mt-3 flex flex-wrap items-center gap-3">
+                    <x-slate::button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+                    >
+                        <span x-text="copied ? 'Copied' : 'Copy command'"></span>
+                    </x-slate::button>
+                    <a href="{{ route('install') }}" class="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                        Full guide
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="border-t-2 border-border pt-5"
+                x-data="{ copied: false, text: @js($agentPrompt) }"
+            >
+                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cursor / agent</p>
+                <p class="mt-2 text-base text-muted-foreground">Open a fresh Laravel app and paste this prompt.</p>
+                <pre class="mt-4 max-h-36 overflow-auto rounded-lg bg-muted px-3 py-3 text-left text-sm leading-relaxed whitespace-pre-wrap text-foreground"><code x-text="text"></code></pre>
+                <div class="mt-3 flex flex-wrap items-center gap-3">
+                    <x-slate::button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+                    >
+                        <span x-text="copied ? 'Copied' : 'Copy prompt'"></span>
+                    </x-slate::button>
+                    <a href="{{ url('/docs/getting-started/ai') }}" class="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                        Agent DX docs
+                    </a>
+                </div>
+            </div>
         </div>
 
         <ol class="mx-auto mt-10 max-w-xl space-y-4 text-base text-foreground">
             <li class="flex gap-3 border-t border-border pt-4">
                 <span class="shrink-0 font-medium text-muted-foreground">1.</span>
-                <span><code class="rounded bg-muted px-1.5 py-0.5 text-sm">composer require electrik/electrik</code></span>
+                <span>Require Electrik (or let the agent run Composer)</span>
             </li>
             <li class="flex gap-3 border-t border-border pt-4">
                 <span class="shrink-0 font-medium text-muted-foreground">2.</span>
-                <span>Run the install / publish steps in the guide</span>
+                <span><code class="rounded bg-muted px-1.5 py-0.5 text-sm">php artisan electrik:install --migrate --force</code></span>
             </li>
             <li class="flex gap-3 border-t border-border pt-4">
                 <span class="shrink-0 font-medium text-muted-foreground">3.</span>
-                <span>Open the app — teams and billing shell ready to configure</span>
+                <span>Open the app — teams and billing shell ready; product code stays in <code class="rounded bg-muted px-1.5 py-0.5 text-sm">App\</code></span>
             </li>
         </ol>
 
