@@ -21,6 +21,9 @@ class MarketingPagesTest extends TestCase
             ['/pricing'],
             ['/faq'],
             ['/contact'],
+            ['/resources'],
+            ['/resources/laravel-saas-starter-kit'],
+            ['/compare'],
         ];
     }
 

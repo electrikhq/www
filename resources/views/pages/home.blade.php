@@ -73,6 +73,11 @@
 <section class="border-t border-border px-4 py-16 sm:px-6">
     <div class="mx-auto max-w-4xl">
         <div class="mx-auto max-w-2xl text-center">
+            <x-site-doodle
+                src="images/illustrations/starter-kit.png"
+                alt="Line drawing of a builder in a small boat raising a lightning bolt"
+                class="mx-auto mb-8 size-40 sm:size-48"
+            />
             <h2 class="text-2xl font-semibold tracking-tight">Stop gluing Jetstream, Spark, and a theme together</h2>
             <p class="mt-3 text-base text-muted-foreground">
                 Most Laravel SaaS starts as four weekends of the same setup. Electrik is the setup.

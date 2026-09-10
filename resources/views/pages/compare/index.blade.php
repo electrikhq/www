@@ -68,13 +68,21 @@
         class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_20%_-10%,color-mix(in_oklch,var(--slate-foreground)_7%,transparent),transparent)]"
         aria-hidden="true"
     ></div>
-    <div class="mx-auto max-w-3xl">
+    <div class="mx-auto flex max-w-3xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="min-w-0">
         <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Compare · Alternatives</p>
         <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Electrik vs alternatives</h1>
         <p class="mt-4 text-lg text-muted-foreground text-pretty">
             Looking for a Laravel SaaS starter alternative to Jetstream, Spark, Wave, SaaSykit, Larafast, or Filament?
             Honest feature comparisons — including when you should pick <em>them</em>.
         </p>
+        </div>
+        <x-site-doodle
+            src="images/illustrations/build-path.png"
+            alt="Line drawing of a builder crossing a plank toward a studio window"
+            :lazy="false"
+            class="mx-auto size-40 shrink-0 lg:mx-0 lg:size-48"
+        />
     </div>
 </section>
 

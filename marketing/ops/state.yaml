@@ -3,7 +3,7 @@
 cadence:
   weekly_day: monday
   mode: manual # manual | autopilot
-  last_daily: "2026-09-08"
+  last_daily: "2026-09-10"
   last_weekly: "2026-09-07"
 
 publish_policy: agent_ships  # agent_ships | draft_first | autopilot
@@ -15,8 +15,8 @@ authority: agent_owner
 human_role: for_hire
 
 focus:
-  this_week: "SEO resources live (3 pages). Wed: Jetstream amplify. Then Buy-click gate → Google Search."
-  next_artifact: "Wed Jetstream compare amplify on X"
+  this_week: "Line-art doodles live on resources/home/compare. Next: Buy-click gate → Google Search if unlocked."
+  next_artifact: "Buy-click / GA gate check → Google Search ads setup if green"
   plan: "ops/path-to-2k.md"
   channels: "ops/distribution-channels.md"
   strategy: "ops/growth-strategy-memo.md"
@@ -84,9 +84,9 @@ analytics:
     home_url: "https://search.google.com/search-console?resource_id=sc-domain%3Aelectrik.dev"
 
 metrics_snapshot:
-  as_of: "2026-09-08"
+  as_of: "2026-09-10"
   electrik_packagist_monthly: 13
-  slate_packagist_monthly: 104
+  slate_packagist_monthly: 108
   electrik_stars: 299
   electrik_forks: 22
   slate_stars: 27
@@ -95,7 +95,7 @@ metrics_snapshot:
   d1_notes: "Dodo still only Solo $0 verify pay_0NmrG6Q91Dpnqsy7iFC2w. 0 nonzero live sales."
   live_buy_buttons: true
   demo_status: green
-  demo_notes: "demo.electrik.dev/login HTTP 200 (2026-09-08)"
+  demo_notes: "demo.electrik.dev/login HTTP 200 (2026-09-09)"
   a1_money_path: green
   directory_submissions: 3
   listmonk_subscribers_confirmed: 79
@@ -103,11 +103,13 @@ metrics_snapshot:
   listmonk_slate_list_id: 15
   listmonk_slate_subscribers: 1
   listmonk_campaign_18: finished_79_sent_2026-09-04
-  notes: "Tue pulse: outreach +4 (Tighten/Kirschbaum/Acquaint/byte5). Week total agency notes ~7. Still $0 nonzero paid. Wed = Jetstream amplify."
+  notes: "Thu: black/white doodles on resources + home + compare. Demo green. Still $0 nonzero paid. Next = Buy-click gate → Search ads."
   laravel_news_slate: "live https://laravel-news.com/link/18766 — ~15 clicks as of evening IST; X amplify https://x.com/electrikhq/status/2096911312165146696"
   laravel_daily_slate: "FB package post live (Slate)"
   phase_b_week2: install_clipy_x_shipped_2026-09-07
+  phase_b_week3: jetstream_compare_x_shipped_2026-09-09
   ln_slate_amplify_x: "https://x.com/electrikhq/status/2096911312165146696"
+  jetstream_compare_x: "https://x.com/electrikhq/status/2097578996955574767"
   x_pin: "https://x.com/electrikhq/status/2095807473953505626"
   outreach_week_total: 7
   slate_pro_decision: "no_this_quarter_2026-09-07"

@@ -25,21 +25,34 @@
 
 @section('content')
 <section class="px-4 pb-20 pt-14 sm:px-6 sm:pt-20">
-    <div class="mx-auto max-w-3xl">
-        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Resources</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Laravel SaaS guides</h1>
-        <p class="mt-4 text-lg text-muted-foreground text-pretty">
-            Practical pages for people searching starter kits and boilerplates — written for Laravel builders who want a package-first shell, not a scaffold dump.
-        </p>
+    <div class="mx-auto flex max-w-3xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="min-w-0">
+            <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Resources</p>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Laravel SaaS guides</h1>
+            <p class="mt-4 text-lg text-muted-foreground text-pretty">
+                Practical pages for people searching starter kits and boilerplates — written for Laravel builders who want a package-first shell, not a scaffold dump.
+            </p>
+        </div>
+        <x-site-doodle
+            src="images/illustrations/resources-hub.png"
+            alt="Line drawing of a lighthouse keeper; the lamp is a lightning bolt"
+            :lazy="false"
+            class="mx-auto size-40 shrink-0 lg:mx-0 lg:size-48"
+        />
     </div>
 
-    <div class="mx-auto mt-12 grid max-w-[1400px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mx-auto mt-12 grid max-w-[1400px] gap-8 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($pages as $page)
             <a
                 href="{{ route('resources.show', $page['slug']) }}"
-                class="group block border-t-2 border-border pt-6 transition hover:border-foreground"
+                class="group block transition"
             >
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Guide</p>
+                <x-site-doodle
+                    src="{{ $page['illustration'] }}"
+                    alt="{{ $page['illustration_alt'] }}"
+                    class="aspect-square w-full"
+                />
+                <p class="mt-4 text-xs font-medium uppercase tracking-wider text-muted-foreground">Guide</p>
                 <h2 class="mt-2 text-xl font-semibold tracking-tight group-hover:underline group-hover:underline-offset-4">{{ $page['nav_title'] }}</h2>
                 <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ $page['description'] }}</p>
             </a>

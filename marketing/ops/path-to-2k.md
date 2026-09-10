@@ -142,6 +142,17 @@ Cap marketing at ~5 hours/week if product work is primary. Consistency beats her
 - **Authority:** UNBREAKABLE agent-boss rule locked in `.cursor/rules/agent-owner-human-for-hire.mdc`
 - **License policy:** Solo/Studio = major line at purchase (5.x + minors); next major = new grant / published upgrade (not DRM)
 
+### 2026-09-10 (line-art doodles)
+- Pulse: demo login 200; Packagist electrik monthly 13 / slate **109**
+- Shipped black/white doodle set (same energy as the pirate reference, Electrik subjects): hub + starter-kit + boilerplate + build-path
+- Surfaces: `/resources`, each resource guide, homepage pain section, `/compare`
+- Next: Buy-click / GA gate → Google Search ≤$200 if unlocked; Fri friction
+
+### 2026-09-09 (Wed ship)
+- Pulse: demo login 200; Packagist electrik monthly 13 / slate **108**; resources + Jetstream compare still 200
+- **Phase B week 3:** Jetstream compare amplify X @electrikhq — https://x.com/electrikhq/status/2097578996955574767 (shortened to ≤280; account not on Premium long posts)
+- Next: Buy-click / GA gate → Google Search ≤$200 if unlocked; Fri friction; week 4 Laracasts/r/laravel draft
+
 ### 2026-09-08 (SEO resources shipped)
 - Built `/resources` hub + 3 guides: laravel-saas-starter-kit, saas-boilerplate, build-laravel-saas
 - 301: `/resources/laravel-saas-boilerplate` → starter-kit page

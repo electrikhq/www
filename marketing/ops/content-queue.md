@@ -4,11 +4,25 @@ Ship one per week. Move done items to “Shipped”.
 
 ## Ready / next
 
-1. **Electrik vs Jetstream (share)** — https://electrik.dev/compare/electrik-vs-jetstream  
-2. **Install video thread** — Clipy already live; amplify week 2  
-3. **Teams + Stripe on the team** — docs deep-link + screenshot  
-4. **Laracasts / r/laravel** — Composer-package post (draft below; update prices)  
-5. **[~] Install Loom (60s)** — superseded by Clipy; keep file as backup  
+1. **Laracasts / r/laravel** — Composer-package post (draft below; update prices)  
+2. **Teams + Stripe on the team** — docs deep-link + screenshot  
+3. ~~Electrik vs Jetstream (share)~~ — shipped 2026-09-09  
+4. ~~Install video thread~~ — Clipy amplify shipped 2026-09-07  
+
+### X / LinkedIn — Jetstream compare (SHIPPED 2026-09-09)
+
+**Live:** https://x.com/electrikhq/status/2097578996955574767  
+**Note:** Free X is ≤280 chars; long draft overran — shipped shortened version.
+
+```
+Electrik vs Jetstream:
+
+Jetstream = auth/teams scaffold. You own every file. No Stripe. Agents edit dumped code forever.
+
+Electrik = Composer package (teams + Stripe on the team + Slate). Shell stays updatable.
+
+https://electrik.dev/compare/electrik-vs-jetstream
+```
 
 ### X — licenses live (SHIPPED)
 
@@ -61,21 +75,6 @@ Checkout: https://electrik.dev/pricing
 **Admin:** https://campaigns.quickbrownfox.io/admin/campaigns/18  
 **From:** `Electrik <hello@electrik.dev>` · prices Solo $99 / Studio $149
 
-### X / LinkedIn — Jetstream compare (ready)
-
-```
-Electrik vs Jetstream, short version:
-
-Jetstream = official auth/teams scaffold. You own every file. No Stripe billing. Agents edit dumped code forever.
-
-Electrik = Composer package (teams + Stripe on the team + Slate). Cursor/Claude extend App\ — shell stays updatable. AI docs: electrik.dev/docs/getting-started/ai
-
-BSL grant for indies; Solo/Studio when you need commercial.
-
-Matrix:
-https://electrik.dev/compare/electrik-vs-jetstream
-```
-
 ### Laracasts / r/laravel (week 4)
 
 **Title:** Why we ship Electrik as a Composer package (Laravel 12 SaaS starter)
@@ -99,6 +98,7 @@ Happy to answer install questions.
 
 ## Shipped
 
+- 2026-09-09 — Jetstream compare X @electrikhq — https://x.com/electrikhq/status/2097578996955574767
 - 2026-09-07 — LN Slate amplify X @electrikhq — https://x.com/electrikhq/status/2096911312165146696
 - 2026-09-07 — Install Clipy X @electrikhq — https://x.com/electrikhq/status/2096849840575832351
 - 2026-09-04 — Licenses-live X @electrikhq — https://x.com/electrikhq/status/2095807473953505626
