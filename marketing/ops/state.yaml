@@ -15,7 +15,7 @@ authority: agent_owner
 human_role: for_hire
 
 focus:
-  this_week: "Line-art doodles live on resources/home/compare. Next: Buy-click gate → Google Search if unlocked."
+  this_week: "Doodles reverted. Next: Buy-click gate → Google Search if unlocked."
   next_artifact: "Buy-click / GA gate check → Google Search ads setup if green"
   plan: "ops/path-to-2k.md"
   channels: "ops/distribution-channels.md"
@@ -103,7 +103,7 @@ metrics_snapshot:
   listmonk_slate_list_id: 15
   listmonk_slate_subscribers: 1
   listmonk_campaign_18: finished_79_sent_2026-09-04
-  notes: "Thu: black/white doodles on resources + home + compare. Demo green. Still $0 nonzero paid. Next = Buy-click gate → Search ads."
+  notes: "Thu: doodles reverted. Demo green. Still $0 nonzero paid. Next = Buy-click gate → Search ads."
   laravel_news_slate: "live https://laravel-news.com/link/18766 — ~15 clicks as of evening IST; X amplify https://x.com/electrikhq/status/2096911312165146696"
   laravel_daily_slate: "FB package post live (Slate)"
   phase_b_week2: install_clipy_x_shipped_2026-09-07

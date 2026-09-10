@@ -62,8 +62,6 @@ class Resources
                 'electrik',
             ],
             'eyebrow' => 'Resource',
-            'illustration' => 'images/illustrations/starter-kit.png',
-            'illustration_alt' => 'Line drawing of a builder in a small boat raising a lightning bolt',
             'lede' => 'If you searched for a Laravel SaaS starter kit, you usually want auth, teams, billing, and a UI shell without spending months gluing Jetstream, Cashier, and a theme together. Electrik is that shell — as a Composer package.',
             'sections' => [
                 [
@@ -147,8 +145,6 @@ class Resources
                 'composer saas starter',
             ],
             'eyebrow' => 'Resource',
-            'illustration' => 'images/illustrations/boilerplate.png',
-            'illustration_alt' => 'Line drawing of a craftsperson assembling a Composer package crate',
             'lede' => '“SaaS boilerplate” is one of the highest-volume kit searches. Most results are Next.js zip starters or Laravel scaffolds. Electrik answers the same job on Laravel — without treating your app as a disposable fork of someone else’s auth.',
             'sections' => [
                 [
@@ -224,8 +220,6 @@ class Resources
                 'laravel teams stripe',
             ],
             'eyebrow' => 'Resource',
-            'illustration' => 'images/illustrations/build-path.png',
-            'illustration_alt' => 'Line drawing of a builder crossing a plank from an empty laptop toward a studio window',
             'lede' => 'Building a SaaS on Laravel is still a strong default for product and agency teams. The costly part is not “can Laravel do it?” — it is how you assemble auth, teams, and billing before your actual product exists.',
             'sections' => [
                 [

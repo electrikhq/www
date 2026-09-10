@@ -49,38 +49,30 @@
         class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_80%_-10%,color-mix(in_oklch,var(--slate-foreground)_7%,transparent),transparent)]"
         aria-hidden="true"
     ></div>
-    <div class="mx-auto flex max-w-3xl flex-col items-start gap-8 lg:max-w-5xl lg:flex-row lg:items-center lg:gap-12">
-        <div class="min-w-0 flex-1">
-            <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-                <a href="{{ route('resources.index') }}" class="hover:text-foreground">Resources</a>
-                <span class="mx-2 text-border">/</span>
-                {{ $page['eyebrow'] }}
-            </p>
-            <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl text-pretty">{{ $page['nav_title'] }}</h1>
-            <p class="mt-4 text-lg text-muted-foreground text-pretty">{{ $page['lede'] }}</p>
-            <div class="mt-8 flex flex-wrap gap-3">
-                <a
-                    href="{{ route('pricing') }}"
-                    class="inline-flex items-center justify-center rounded-md bg-foreground px-4 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
-                >View pricing</a>
-                <a
-                    href="{{ config('site.demo_url') }}"
-                    class="inline-flex items-center justify-center rounded-md border border-border px-4 py-2.5 text-sm font-medium text-foreground transition hover:bg-muted"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >Open demo</a>
-                <a
-                    href="{{ route('install') }}"
-                    class="inline-flex items-center justify-center px-2 py-2.5 text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
-                >Install guide</a>
-            </div>
+    <div class="mx-auto max-w-3xl">
+        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
+            <a href="{{ route('resources.index') }}" class="hover:text-foreground">Resources</a>
+            <span class="mx-2 text-border">/</span>
+            {{ $page['eyebrow'] }}
+        </p>
+        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl text-pretty">{{ $page['nav_title'] }}</h1>
+        <p class="mt-4 text-lg text-muted-foreground text-pretty">{{ $page['lede'] }}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+            <a
+                href="{{ route('pricing') }}"
+                class="inline-flex items-center justify-center rounded-md bg-foreground px-4 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
+            >View pricing</a>
+            <a
+                href="{{ config('site.demo_url') }}"
+                class="inline-flex items-center justify-center rounded-md border border-border px-4 py-2.5 text-sm font-medium text-foreground transition hover:bg-muted"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Open demo</a>
+            <a
+                href="{{ route('install') }}"
+                class="inline-flex items-center justify-center px-2 py-2.5 text-sm font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >Install guide</a>
         </div>
-        <x-site-doodle
-            src="{{ $page['illustration'] }}"
-            alt="{{ $page['illustration_alt'] }}"
-            :lazy="false"
-            class="mx-auto size-52 shrink-0 sm:size-64 lg:mx-0"
-        />
     </div>
 </section>
 

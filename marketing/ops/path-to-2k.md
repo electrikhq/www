@@ -143,10 +143,7 @@ Cap marketing at ~5 hours/week if product work is primary. Consistency beats her
 - **License policy:** Solo/Studio = major line at purchase (5.x + minors); next major = new grant / published upgrade (not DRM)
 
 ### 2026-09-10 (line-art doodles)
-- Pulse: demo login 200; Packagist electrik monthly 13 / slate **109**
-- Shipped black/white doodle set (same energy as the pirate reference, Electrik subjects): hub + starter-kit + boilerplate + build-path
-- Surfaces: `/resources`, each resource guide, homepage pain section, `/compare`
-- Next: Buy-click / GA gate → Google Search ≤$200 if unlocked; Fri friction
+- Tried black/white doodles on resources/home/compare — **killed same day** (looked bad). Pages back to type-only.
 
 ### 2026-09-09 (Wed ship)
 - Pulse: demo login 200; Packagist electrik monthly 13 / slate **108**; resources + Jetstream compare still 200
