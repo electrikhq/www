@@ -24,20 +24,23 @@
 @endphp
 
 @section('content')
-<section class="px-4 pb-20 pt-14 sm:px-6 sm:pt-20">
+<section class="home-dot-canvas border-b border-[var(--home-line)] px-4 pb-14 pt-16 sm:px-6 sm:pb-16 sm:pt-20">
     <div class="mx-auto max-w-3xl">
-        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Resources</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Laravel SaaS guides</h1>
-        <p class="mt-4 text-lg text-muted-foreground text-pretty">
+        <p class="home-eyebrow">Resources</p>
+        <h1 class="site-page-title mt-5">Laravel SaaS guides</h1>
+        <p class="site-page-lead">
             Practical pages for people searching starter kits and boilerplates — written for Laravel builders who want a package-first shell, not a scaffold dump.
         </p>
     </div>
+</section>
 
-    <div class="mx-auto mt-12 grid max-w-[1400px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<section class="px-4 py-14 sm:px-6 sm:py-16">
+    <div class="mx-auto grid max-w-[1400px] gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($pages as $page)
             <a
                 href="{{ route('resources.show', $page['slug']) }}"
-                class="group block border-t-2 border-border pt-6 transition hover:border-foreground"
+                class="group block border-t border-[var(--home-line)] pt-6 transition hover:border-[var(--home-ink)]"
+
             >
                 <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Guide</p>
                 <h2 class="mt-2 text-xl font-semibold tracking-tight group-hover:underline group-hover:underline-offset-4">{{ $page['nav_title'] }}</h2>

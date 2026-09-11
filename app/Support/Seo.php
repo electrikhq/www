@@ -11,7 +11,7 @@ class Seo
 
     public const SITE_TAGLINE = 'Laravel SaaS starter kit';
 
-    public const DEFAULT_DESCRIPTION = 'Auth, teams, and Stripe billing as a Composer package on Laravel 12, Livewire, and Slate 3. Full features in source with honest BSL dual licensing.';
+    public const DEFAULT_DESCRIPTION = 'Ship Laravel SaaS without rebuilding teams and billing. Electrik is auth, team workspaces, Stripe, and Slate UI as a Composer package — full features in source, $0 grant, commercial from $99.';
 
     public const ORG_NAME = 'Electrik';
 
@@ -366,12 +366,24 @@ class Seo
                 'answer' => 'Electrik includes a free Additional Use Grant for personal, educational, open-source, and pre-revenue indie use. Companies, client work, and commercial products require a commercial license. All features ship in source for both lanes.',
             ],
             [
+                'question' => 'What’s the difference between Solo $99 and Studio $149?',
+                'answer' => 'Solo covers one commercial product. Studio covers unlimited commercial projects. Both are one-time for the major line current at purchase (today 5.x + minors). Agency is custom for org / white-label needs.',
+            ],
+            [
+                'question' => 'If the shell is in vendor, can I customize views?',
+                'answer' => 'Yes. Customize via config and env first; publish views with Artisan when you need to brand or replace specific screens. You do not dump the whole SaaS shell into App\\.',
+            ],
+            [
                 'question' => 'How do I install Electrik 5.x?',
                 'answer' => 'Require the package with Composer, then run php artisan electrik:install on a fresh Laravel 12 app. See the install guide on electrik.dev for requirements and Stripe setup.',
             ],
             [
-                'question' => 'What UI stack does Electrik use?',
-                'answer' => 'Electrik 5.x is built on Electrik Slate 3: anonymous Blade components, Tailwind CSS v4 tokens, and Livewire 4. UI documentation lives at slate.electrik.dev.',
+                'question' => 'Is this a Jetstream-style scaffold dump?',
+                'answer' => 'No. Electrik is a Composer package under the Electrik\\ namespace. Auth, teams, and billing stay in vendor; your product code lives in App\\.',
+            ],
+            [
+                'question' => 'Can Cursor or Claude install Electrik?',
+                'answer' => 'Yes. Paste the agent prompt from the homepage, or point the agent at electrik.dev/llms.txt and AGENTS.md. Agents should keep the shell in vendor and write product code in App\\.',
             ],
         ];
     }

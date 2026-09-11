@@ -8,23 +8,32 @@
 @source '../**/*.js';
 
 @theme inline {
-    --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
     --font-mono: "Geist Mono", ui-monospace, monospace;
-    /* Slightly larger type scale for marketing readability */
-    --text-xs: 0.8125rem;
-    --text-sm: 0.9375rem;
-    --text-base: 1.0625rem;
-    --text-lg: 1.1875rem;
-    --text-xl: 1.3125rem;
-    --text-2xl: 1.5625rem;
-    --text-3xl: 1.9375rem;
-    --text-4xl: 2.375rem;
-    --text-5xl: 3.125rem;
-    --text-6xl: 3.875rem;
+    --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+}
+
+:root {
+    --slate-radius: 0.5rem;
 }
 
 html {
-    font-size: 17px;
+    font-size: 16px;
+}
+
+body {
+    letter-spacing: -0.014em;
 }
 
 ::selection {
@@ -34,6 +43,421 @@ html {
 
 [x-cloak] {
     display: none !important;
+}
+
+.font-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.04em;
+}
+
+/* Site-wide premium marketing canvas */
+.site-premium,
+.home-premium {
+    --home-ink: #0a0a0a;
+    --home-muted: #5c5c5c;
+    --home-line: #e8e8e6;
+    --home-soft: #f4f4f1;
+    --home-canvas: #fafaf8;
+    --home-accent: #1d4ed8;
+    --home-highlight: #1d4ed8;
+    background: var(--home-canvas);
+    color: var(--home-ink);
+}
+
+:is(.site-premium, .home-premium) .home-section {
+    padding-block: 6rem;
+}
+
+@media (min-width: 640px) {
+    :is(.site-premium, .home-premium) .home-section {
+        padding-block: 8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :is(.site-premium, .home-premium) .home-section {
+        padding-block: 9.5rem;
+    }
+}
+
+:is(.site-premium, .home-premium) .home-wrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 72rem;
+    padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    :is(.site-premium, .home-premium) .home-wrap {
+        padding-inline: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :is(.site-premium, .home-premium) .home-wrap {
+        padding-inline: 2.5rem;
+    }
+}
+
+:is(.site-premium, .home-premium) .home-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--home-muted);
+}
+
+:is(.site-premium, .home-premium) .home-eyebrow::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--home-accent);
+}
+
+:is(.site-premium, .home-premium) .home-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    color: var(--home-ink);
+    line-height: 1.05;
+}
+
+:is(.site-premium, .home-premium) .home-lead {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--home-muted);
+}
+
+@media (min-width: 640px) {
+    :is(.site-premium, .home-premium) .home-lead {
+        font-size: 1.25rem;
+    }
+}
+
+:is(.site-premium, .home-premium) .home-mark {
+    background: var(--home-highlight);
+    color: #fff;
+    padding: 0.1em 0.28em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* Inner marketing pages */
+:is(.site-premium, .home-premium) .site-page {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 48rem;
+    padding: 4rem 1.5rem 5rem;
+}
+
+@media (min-width: 640px) {
+    :is(.site-premium, .home-premium) .site-page {
+        padding: 5.5rem 2rem 6.5rem;
+    }
+}
+
+:is(.site-premium, .home-premium) .site-page--wide {
+    max-width: 72rem;
+}
+
+:is(.site-premium, .home-premium) .site-page-title {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+    color: var(--home-ink);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+:is(.site-premium, .home-premium) .site-page-lead {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--home-muted);
+}
+
+:is(.site-premium, .home-premium) .prose-site {
+    --tw-prose-body: var(--home-muted);
+    --tw-prose-headings: var(--home-ink);
+    --tw-prose-links: var(--home-ink);
+    --tw-prose-bold: var(--home-ink);
+    --tw-prose-code: var(--home-ink);
+    --tw-prose-pre-bg: #0a0a0a;
+    --tw-prose-pre-code: #e8e8e6;
+    --tw-prose-quotes: var(--home-ink);
+    --tw-prose-hr: var(--home-line);
+}
+
+:is(.site-premium, .home-premium) .prose-site :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    color: var(--home-ink);
+}
+
+:is(.site-premium, .home-premium) .prose-site :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    color: var(--home-ink);
+}
+
+:is(.site-premium, .home-premium) .site-footer {
+    border-color: var(--home-line);
+    color: var(--home-muted);
+}
+
+:is(.site-premium, .home-premium) header.sticky {
+    border-color: color-mix(in srgb, var(--home-line) 90%, transparent);
+    background: color-mix(in srgb, var(--home-canvas) 82%, transparent);
+}
+
+:is(.site-premium, .home-premium) .docs-prose {
+    color: var(--home-ink);
+}
+
+:is(.site-premium, .home-premium) aside.border-r {
+    border-color: var(--home-line);
+    background: var(--home-canvas);
+}
+
+/* Floating product stage (Intercom-style depth) */
+.home-stage {
+    position: relative;
+    isolation: isolate;
+    padding: 1.5rem 0 0;
+}
+
+.home-stage-ghost {
+    position: absolute;
+    inset: 12% 4% auto 18%;
+    height: 78%;
+    border-radius: 1.15rem;
+    background: #fff;
+    border: 1px solid var(--home-line);
+    box-shadow: 0 30px 80px -40px rgb(0 0 0 / 0.35);
+    transform: rotate(2.5deg) translate(2rem, -0.5rem);
+    opacity: 0.55;
+    z-index: 0;
+}
+
+.home-stage-frame {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 1.15rem;
+    border: 1px solid rgb(0 0 0 / 0.08);
+    background: #fff;
+    box-shadow:
+        0 1px 0 rgb(255 255 255 / 0.7) inset,
+        0 40px 100px -48px rgb(0 0 0 / 0.45),
+        0 16px 40px -24px rgb(0 0 0 / 0.2);
+}
+
+.home-stage-chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--home-line);
+    background: #f7f7f5;
+    padding: 0.7rem 1rem;
+}
+
+.home-stage-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: #d4d4d0;
+}
+
+.home-stage-frame img {
+    display: block;
+    width: 100%;
+}
+
+/* Feature showcase with floating cards over product */
+.home-feature-art {
+    position: relative;
+    min-height: 22rem;
+}
+
+.home-feature-art-bg {
+    border-radius: 1rem;
+    border: 1px solid var(--home-line);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 60px -36px rgb(0 0 0 / 0.3);
+}
+
+.home-float-card {
+    position: absolute;
+    z-index: 2;
+    width: min(18rem, 78%);
+    border-radius: 0.9rem;
+    border: 1px solid rgb(0 0 0 / 0.06);
+    background: #fff;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 18px 50px -28px rgb(0 0 0 / 0.35);
+}
+
+.home-float-card--a {
+    top: 8%;
+    right: -2%;
+}
+
+.home-float-card--b {
+    bottom: 6%;
+    left: 4%;
+}
+
+.home-float-card--c {
+    top: 28%;
+    right: 6%;
+}
+
+@media (max-width: 1023px) {
+    .home-float-card--a,
+    .home-float-card--b,
+    .home-float-card--c {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+
+    .home-feature-art {
+        min-height: 0;
+    }
+}
+
+/* Integrations grid */
+.home-integ {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+}
+
+@media (min-width: 640px) {
+    .home-integ {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+.home-integ-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    border: 1px solid var(--home-line);
+    border-radius: 0.85rem;
+    background: #fff;
+    padding: 1.15rem 1.2rem;
+    font-size: 0.9375rem;
+    font-weight: 550;
+    color: var(--home-ink);
+}
+
+.home-integ-mark {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background: var(--home-soft);
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--home-muted);
+}
+
+/* Big pricing band */
+.home-price-band {
+    border-radius: 1.25rem;
+    border: 1px solid var(--home-line);
+    background: var(--home-soft);
+    padding: 2.5rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .home-price-band {
+        padding: 3.5rem 3rem;
+    }
+}
+
+.home-price-num {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: var(--home-ink);
+}
+
+.home-price-meta {
+    margin-top: 0.35rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--home-muted);
+}
+
+.home-price-lanes {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .home-price-lanes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+.home-price-lane {
+    border-top: 1px solid rgb(0 0 0 / 0.1);
+    padding-top: 1.25rem;
+}
+
+.home-dot-canvas {
+    background-image: radial-gradient(rgb(0 0 0 / 0.07) 0.7px, transparent 0.7px);
+    background-size: 14px 14px;
+}
+
+.home-quote-frame {
+    border: 1px solid color-mix(in srgb, var(--home-accent) 35%, transparent);
+    background: #fff;
+    position: relative;
+}
+
+.home-quote-frame::before,
+.home-quote-frame::after {
+    content: "";
+    position: absolute;
+    width: 0.45rem;
+    height: 0.45rem;
+    background: var(--home-accent);
+}
+
+.home-quote-frame::before {
+    top: -1px;
+    left: -1px;
+}
+
+.home-quote-frame::after {
+    top: -1px;
+    right: -1px;
+}
+
+.home-tree pre {
+    margin: 0;
+    overflow-x: auto;
 }
 
 .prose-site {

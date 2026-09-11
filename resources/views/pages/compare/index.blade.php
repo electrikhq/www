@@ -63,26 +63,22 @@
 @endphp
 
 @section('content')
-<section class="relative overflow-hidden border-b border-border px-4 pb-12 pt-14 sm:px-6 sm:pt-18">
-    <div
-        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_20%_-10%,color-mix(in_oklch,var(--slate-foreground)_7%,transparent),transparent)]"
-        aria-hidden="true"
-    ></div>
+<section class="home-dot-canvas border-b border-[var(--home-line)] px-4 pb-14 pt-16 sm:px-6 sm:pb-16 sm:pt-20">
     <div class="mx-auto max-w-3xl">
-        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Compare · Alternatives</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Electrik vs alternatives</h1>
-        <p class="mt-4 text-lg text-muted-foreground text-pretty">
+        <p class="home-eyebrow">Compare · Alternatives</p>
+        <h1 class="site-page-title mt-5">Electrik vs alternatives</h1>
+        <p class="site-page-lead">
             Looking for a Laravel SaaS starter alternative to Jetstream, Spark, Wave, SaaSykit, Larafast, or Filament?
             Honest feature comparisons — including when you should pick <em>them</em>.
         </p>
     </div>
 </section>
 
-<section class="border-b border-border px-4 py-12 sm:px-6">
+<section class="border-b border-[var(--home-line)] px-4 py-14 sm:px-6 sm:py-16">
     <div class="mx-auto max-w-[1400px]">
-        <div class="mb-8 max-w-3xl">
-            <h2 class="text-2xl font-semibold tracking-tight">Pick a deep dive</h2>
-            <p class="mt-2 text-muted-foreground">
+        <div class="mb-10 max-w-3xl">
+            <h2 class="site-page-title !text-2xl sm:!text-3xl">Pick a deep dive</h2>
+            <p class="site-page-lead !mt-3 !text-base">
                 Each page has a full matrix, licensing notes, and “choose Electrik if / choose them if” guidance.
             </p>
         </div>

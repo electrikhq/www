@@ -15,7 +15,7 @@
 @endphp
 
 @section('content')
-<section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+<section class="site-page">
     <div class="prose-site">
         <h1>Install Electrik</h1>
         <p>

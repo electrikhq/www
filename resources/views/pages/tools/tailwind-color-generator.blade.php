@@ -65,21 +65,17 @@
 @endphp
 
 @section('content')
-<section class="relative overflow-hidden border-b border-border px-4 pb-12 pt-14 sm:px-6 sm:pt-18">
-    <div
-        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_50%_at_20%_-10%,color-mix(in_oklch,var(--slate-foreground)_7%,transparent),transparent)]"
-        aria-hidden="true"
-    ></div>
+<section class="home-dot-canvas border-b border-[var(--home-line)] px-4 pb-14 pt-16 sm:px-6 sm:pb-16 sm:pt-20">
     <div class="mx-auto max-w-3xl">
-        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-            <a href="{{ route('tools.index') }}" class="hover:text-foreground">Free tools</a>
-            <span class="mx-2 text-border">/</span>
+        <p class="home-eyebrow">
+            <a href="{{ route('tools.index') }}" class="hover:text-[var(--home-ink)]">Free tools</a>
+            <span class="mx-2 opacity-40">/</span>
             Colors
         </p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Tailwind color generator</h1>
-        <p class="mt-4 text-lg text-muted-foreground text-pretty">
+        <h1 class="site-page-title mt-5">Tailwind color generator</h1>
+        <p class="site-page-lead">
             Build Tailwind-ready shade scales from a base color. Export
-            <strong class="font-medium text-foreground">v4 @theme</strong>,
+            <strong class="font-medium text-[var(--home-ink)]">v4 @theme</strong>,
             classic config, CSS variables, or Electrik Slate tokens — free, no signup.
         </p>
     </div>

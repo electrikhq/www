@@ -1,39 +1,14 @@
-<footer class="border-t border-border">
-    <div class="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-4 py-10 text-center text-sm text-muted-foreground sm:px-6">
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <a href="{{ route('docs.show') }}" class="hover:text-foreground">Docs</a>
-            <a href="{{ route('install') }}" class="hover:text-foreground">Install</a>
-            <a href="{{ route('pricing') }}" class="hover:text-foreground">Pricing</a>
-            <a href="{{ route('resources.index') }}" class="hover:text-foreground">Resources</a>
-            <a href="{{ route('tools.index') }}" class="hover:text-foreground">Tools</a>
-            <a href="{{ route('compare.index') }}" class="hover:text-foreground">Compare</a>
-            <a href="{{ route('license') }}" class="hover:text-foreground">License</a>
-            <a href="{{ route('faq') }}" class="hover:text-foreground">FAQ</a>
-            <a href="{{ route('contact') }}" class="hover:text-foreground">Contact</a>
-            <a href="{{ route('legal.index') }}" class="hover:text-foreground">Legal</a>
-            <a href="{{ config('site.slate_url') }}" target="_blank" rel="noopener noreferrer" class="hover:text-foreground">Slate UI kit</a>
-            <a href="{{ config('site.github_url') }}" target="_blank" rel="noopener noreferrer" class="hover:text-foreground">GitHub</a>
-        </div>
-
-        <p>
-            Built by
-            <a href="{{ config('site.studio.url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">{{ config('site.studio.name') }}</a>
-            /
-            <a href="https://neerajkumar.name" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">Neeraj Kumar</a>.
-            UI by
-            <a href="{{ config('site.slate_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">Slate</a>.
-            Need a team?
-            <a href="{{ route('contact') }}" class="underline underline-offset-4 hover:text-foreground">Get in touch</a>.
+<footer class="site-footer border-t">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p class="text-sm">
+            Electrik · <a href="{{ route('license') }}" class="underline underline-offset-4 hover:text-[var(--home-ink)]">BSL 1.1</a>
         </p>
-
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <x-openhunts-badge />
-            <x-scrolllaunch-badge />
+        <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <a href="{{ route('docs.show') }}" class="hover:text-[var(--home-ink)]">Docs</a>
+            <a href="{{ route('install') }}" class="hover:text-[var(--home-ink)]">Install</a>
+            <a href="{{ route('pricing') }}" class="hover:text-[var(--home-ink)]">Pricing</a>
+            <a href="{{ config('site.github_url') }}" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--home-ink)]">GitHub</a>
+            <a href="{{ route('contact') }}" class="hover:text-[var(--home-ink)]">Contact</a>
         </div>
-
-        <p class="text-xs">
-            &copy; {{ date('Y') }} Electrik. Source under
-            <a href="{{ route('license') }}" class="underline underline-offset-4 hover:text-foreground">BSL 1.1</a>.
-        </p>
     </div>
 </footer>

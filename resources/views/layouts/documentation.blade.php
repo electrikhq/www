@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme-lock="light">
 
 <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Syne:wght@500..800&family=Geist+Mono:wght@100..900&display=swap">
     <x-theme-init />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <x-seo.json-ld :graph="$seoGraph ?? []" />
@@ -26,7 +26,7 @@
 </head>
 
 <body
-    class="bg-background text-foreground antialiased"
+    class="site-premium antialiased"
     x-data="{
         sidebarOpen: false,
         activeHeading: '',

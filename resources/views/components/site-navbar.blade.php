@@ -16,7 +16,6 @@
         ['label' => 'Docs', 'href' => route('docs.show')],
         ['label' => 'Install', 'href' => route('install')],
         ['label' => 'Pricing', 'href' => route('pricing')],
-        ['label' => 'Resources', 'href' => route('resources.index')],
         ['label' => 'Tools', 'href' => route('tools.index')],
         ['label' => 'Compare', 'href' => route('compare.index')],
         ['label' => 'License', 'href' => route('license')],
@@ -142,8 +141,6 @@
                         <span class="min-w-[1.25rem] tabular-nums" x-text="stars != null ? label(stars) : ''"></span>
                     </a>
                     <span class="h-4 w-px bg-border" aria-hidden="true"></span>
-                    <x-slate::dark-mode-toggle variant="ghost" size="icon-sm" />
-                    <span class="h-4 w-px bg-border" aria-hidden="true"></span>
                     <x-slate::button as="a" size="sm" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer" class="rounded-full px-4">
                         Try demo
                     </x-slate::button>
@@ -157,7 +154,6 @@
                         </svg>
                         GitHub
                     </x-slate::button>
-                    <x-slate::dark-mode-toggle variant="ghost" />
                     <x-slate::button as="a" variant="outline" size="sm" href="{{ route('install') }}">
                         Install
                     </x-slate::button>

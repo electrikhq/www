@@ -15,10 +15,11 @@
 @endphp
 
 @section('content')
-<section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+<section class="site-page site-page--wide">
     <div class="mx-auto max-w-2xl text-center">
-        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Pricing</h1>
-        <p class="mt-3 text-muted-foreground">
+        <p class="home-eyebrow justify-center">Pricing</p>
+        <h1 class="site-page-title mt-5">Pricing</h1>
+        <p class="site-page-lead">
             Pay for permission when your use is commercial. Never pay to unlock billing or teams in source.
         </p>
     </div>

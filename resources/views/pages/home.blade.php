@@ -8,419 +8,525 @@ Install Electrik 5.x as a Composer package.
 Read https://electrik.dev/llms.txt and https://electrik.dev/docs/getting-started/ai first.
 Keep the shell in vendor; put product code in App\. Do not dump Jetstream/Breeze-style auth into App\.
 PROMPT;
+    $studioName = config('site.studio.name');
+    $studioUrl = config('site.studio.url');
+    $ph = config('product-hunt.review');
+    $stack = [
+        ['mark' => 'Lv', 'name' => 'Laravel 12'],
+        ['mark' => 'Lw', 'name' => 'Livewire 4'],
+        ['mark' => 'St', 'name' => 'Stripe Cashier'],
+        ['mark' => 'Sp', 'name' => 'Spatie Permission'],
+        ['mark' => 'Tw', 'name' => 'Tailwind CSS v4'],
+        ['mark' => 'Sl', 'name' => 'Electrik Slate 3'],
+        ['mark' => 'Pk', 'name' => 'Packagist'],
+        ['mark' => 'Cp', 'name' => 'Composer'],
+        ['mark' => 'Gh', 'name' => 'GitHub'],
+    ];
 @endphp
 
-{{-- 1. Hero: Agent DX + 2. Product proof --}}
-<section class="relative overflow-hidden px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-16">
-    <div
-        class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,color-mix(in_oklch,var(--slate-foreground)_8%,transparent),transparent)]"
-        aria-hidden="true"
-    ></div>
+{{-- Hero --}}
+<section class="home-dot-canvas border-b border-[var(--home-line)] px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:pt-20">
+    <div class="home-wrap">
+        <div class="mx-auto max-w-3xl text-center">
+            <p class="home-eyebrow justify-center">Electrik {{ config('site.version') }} · Laravel SaaS kit</p>
+            <h1 class="home-display mt-5 text-4xl sm:text-5xl lg:text-[3.5rem]">
+                Ship Laravel SaaS without rebuilding teams and billing again
+            </h1>
+            <p class="home-lead mx-auto mt-5 max-w-2xl">
+                Auth, team workspaces, Stripe on the team, onboarding, and Slate UI —
+                as a Composer package. Your <code class="rounded bg-black/5 px-1.5 py-0.5 font-mono text-[0.9em] text-[var(--home-ink)]">App\</code> stays clean.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <x-slate::button as="a" size="lg" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
+                    Try the live demo
+                </x-slate::button>
+                <x-slate::button as="a" variant="outline" size="lg" href="{{ route('pricing') }}">
+                    View pricing
+                </x-slate::button>
+            </div>
+            <p class="mt-4 text-sm text-[var(--home-muted)]">
+                $0 grant · Solo $99 one-time · Studio $149 unlimited projects
+            </p>
+            <p class="mt-6" x-data="{ copied: false, text: @js($composerInstall) }">
+                <button
+                    type="button"
+                    class="inline-flex items-center gap-3 rounded-xl border border-[var(--home-line)] bg-white px-4 py-3 font-mono text-sm text-[var(--home-ink)] shadow-sm transition hover:border-black/20"
+                    x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
+                >
+                    <span x-text="text"></span>
+                    <span class="text-xs text-[var(--home-muted)]" x-text="copied ? 'copied' : 'copy'"></span>
+                </button>
+            </p>
+            <p class="mt-4 text-sm text-[var(--home-muted)]">
+                Using Cursor or Claude?
+                <a href="#install-with-agents" class="font-medium text-[var(--home-ink)] underline underline-offset-4">Paste an agent prompt</a>
+            </p>
+        </div>
+
+        <div class="home-stage mx-auto mt-12 max-w-5xl sm:mt-14">
+            <div class="home-stage-ghost" aria-hidden="true"></div>
+            <div class="home-stage-frame">
+                <div class="home-stage-chrome">
+                    <span class="home-stage-dot"></span>
+                    <span class="home-stage-dot"></span>
+                    <span class="home-stage-dot"></span>
+                    <span class="ms-2 text-xs text-[var(--home-muted)]">electrik · team dashboard</span>
+                </div>
+                <img
+                    src="{{ asset('images/electrik-dashboard.png') }}"
+                    alt="Electrik team dashboard"
+                    width="1600"
+                    height="900"
+                    fetchpriority="high"
+                    decoding="async"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Proof --}}
+<section class="border-b border-[var(--home-line)] px-4 py-14 sm:px-6">
     <div class="mx-auto max-w-3xl text-center">
-        <p class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Electrik
+        <p class="text-xs font-semibold tracking-[0.14em] text-[var(--home-muted)] uppercase">Used in production</p>
+        <p class="mt-4 text-lg leading-relaxed text-[var(--home-ink)] sm:text-xl">
+            Every client Laravel SaaS from
+            <a href="{{ $studioUrl }}" class="font-semibold underline underline-offset-4" target="_blank" rel="noopener noreferrer">{{ $studioName }}</a>
+            ships on Electrik — teams, billing shell, and Slate included.
         </p>
+    </div>
+</section>
 
-        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            Paste one prompt. Agents install Laravel SaaS the right way.
-        </h1>
-
-        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Composer package for teams, Stripe, and Slate — with AGENTS.md so Cursor and Claude keep the shell in vendor and write product in <code class="rounded bg-muted px-1.5 py-0.5 text-sm">App\</code>.
-        </p>
+{{-- Agent DX — early, loud, not hero --}}
+<section id="install-with-agents" class="scroll-mt-24 border-b border-[var(--home-line)] bg-[var(--home-soft)] px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
+    <div class="mx-auto grid w-full max-w-6xl items-start gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
+        <div class="max-w-xl">
+            <p class="home-eyebrow">Agent DX</p>
+            <h2 class="home-display mt-6 text-3xl sm:text-4xl lg:text-[2.75rem]">
+                Built for Cursor and Claude — not just humans
+            </h2>
+            <p class="home-lead mt-6">
+                AGENTS.md, llms.txt, and a Cursor skill teach coding agents to
+                <code class="rounded bg-black/5 px-1.5 py-0.5 font-mono text-[0.9em] text-[var(--home-ink)]">composer require</code>
+                Electrik, run the installer, and keep the shell in vendor.
+                Same package either way — agents just install it correctly.
+            </p>
+            <ul class="mt-10 space-y-4 text-sm leading-relaxed text-[var(--home-ink)]">
+                <li class="flex gap-3"><span class="mt-0.5 text-[var(--home-accent)]">→</span> Paste one prompt into Cursor / Claude</li>
+                <li class="flex gap-3"><span class="mt-0.5 text-[var(--home-accent)]">→</span> Agent reads docs + AGENTS.md before touching App\</li>
+                <li class="flex gap-3"><span class="mt-0.5 text-[var(--home-accent)]">→</span> Auth, teams, and billing stay in vendor</li>
+            </ul>
+            <div class="mt-10 flex flex-wrap gap-3">
+                <x-slate::button as="a" variant="outline" href="{{ url('/docs/getting-started/ai') }}">
+                    Agent install docs
+                </x-slate::button>
+                <x-slate::button as="a" variant="ghost" href="{{ route('install') }}">
+                    Human install guide
+                </x-slate::button>
+            </div>
+        </div>
 
         <div
-            class="mx-auto mt-8 max-w-2xl text-left"
+            class="overflow-hidden rounded-2xl border border-black/10 bg-[#0a0a0a] text-white shadow-[0_28px_70px_-36px_rgba(0,0,0,0.5)]"
             x-data="{ copied: false, text: @js($agentPrompt) }"
         >
-            <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Cursor / Claude prompt</p>
-            <pre class="mt-2 max-h-40 overflow-auto rounded-lg bg-muted px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap text-foreground"><code x-text="text"></code></pre>
-            <div class="mt-4 flex flex-wrap items-center gap-3">
-                <x-slate::button
+            <div class="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-6">
+                <p class="text-xs font-semibold tracking-[0.12em] text-white/60 uppercase">Agent prompt</p>
+                <button
                     type="button"
+                    class="shrink-0 rounded-lg bg-white px-3.5 py-2 text-xs font-semibold text-[#0a0a0a] transition hover:bg-white/90"
                     x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
                 >
                     <span x-text="copied ? 'Copied' : 'Copy prompt'"></span>
-                </x-slate::button>
+                </button>
+            </div>
+            <pre class="overflow-x-auto px-5 py-6 font-mono text-[13px] leading-7 whitespace-pre-wrap text-[#e8e8e6] sm:px-6 sm:text-sm">{{ $agentPrompt }}</pre>
+            <div class="border-t border-white/10 px-5 py-4 text-xs leading-relaxed text-white/50 sm:px-6">
+                Optional path — demo and <code class="text-white/75">composer require</code> still work without an agent.
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Pain --}}
+<section class="home-section border-b border-[var(--home-line)]">
+    <div class="home-wrap">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="home-eyebrow justify-center">The problem</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl lg:text-5xl">
+                Stop gluing Jetstream, Spark, and a theme
+            </h2>
+            <p class="home-lead mt-5">
+                Most Laravel SaaS starts as four weekends of the same setup.
+                Electrik <span class="text-[var(--home-ink)]">is</span> the setup — one package, not a dump into App\.
+            </p>
+        </div>
+        <div class="mx-auto mt-16 grid max-w-3xl gap-12 sm:grid-cols-2">
+            <div>
+                <p class="text-sm font-semibold text-[var(--home-muted)]">Without Electrik</p>
+                <ul class="mt-5 space-y-4 text-[var(--home-muted)]">
+                    <li>Jetstream or Breeze for auth</li>
+                    <li>Hand-roll teams and roles</li>
+                    <li>Spark or DIY Cashier</li>
+                    <li>A mismatched admin theme</li>
+                    <li>Starter code rotting in App\</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-sm font-semibold text-[var(--home-ink)]">With Electrik</p>
+                <ul class="mt-5 space-y-4 text-[var(--home-ink)]">
+                    <li>Auth, sessions, profile, 2FA</li>
+                    <li>Team workspaces + Spatie roles</li>
+                    <li>Stripe customer on the team</li>
+                    <li>Slate 3 UI in the kit</li>
+                    <li><code class="rounded bg-black/5 px-1.5 py-0.5 font-mono text-xs">composer require</code> — stays in vendor</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Feature: teams --}}
+<section class="home-section border-b border-[var(--home-line)]">
+    <div class="home-wrap grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div>
+            <p class="home-eyebrow">Teams</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl">Workspaces that match real SaaS</h2>
+            <p class="home-lead mt-5">
+                Create and switch teams, invite members, Spatie roles scoped to the workspace.
+                Your product attaches to the team — not a solo-user afterthought.
+            </p>
+            <div class="mt-8">
                 <x-slate::button as="a" variant="outline" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
-                    Try the demo
+                    See teams in the demo
                 </x-slate::button>
             </div>
         </div>
-
-        <div
-            class="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base text-muted-foreground"
-            x-data="{ copied: false, text: @js($composerInstall) }"
-        >
-            <button
-                type="button"
-                class="inline-flex items-center gap-2 rounded-lg bg-muted px-3 py-1.5 text-sm text-foreground hover:bg-muted/80"
-                x-on:click="navigator.clipboard.writeText(text).then(() => { copied = true; setTimeout(() => copied = false, 2000) })"
-            >
-                <code x-text="text"></code>
-                <span class="text-xs text-muted-foreground" x-text="copied ? 'Copied' : 'Copy'"></span>
-            </button>
-            <span class="text-border" aria-hidden="true">·</span>
-            <a href="{{ route('pricing') }}" class="underline underline-offset-4 hover:text-foreground">Pricing from $0</a>
-            <span class="text-border" aria-hidden="true">·</span>
-            <a href="{{ url('/docs/getting-started/ai') }}" class="underline underline-offset-4 hover:text-foreground">Agent DX docs</a>
-            <span class="text-border" aria-hidden="true">·</span>
-            <a href="{{ config('site.github_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">GitHub</a>
-        </div>
-
-        <div class="mt-8">
-            <x-product-hunt-badge />
-        </div>
-    </div>
-
-    <div class="mx-auto mt-12 max-w-5xl">
-        <div class="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
-            <img
-                src="{{ asset('images/electrik-dashboard.png') }}"
-                alt="Electrik dashboard preview with sidebar, metrics, and team context"
-                width="1600"
-                height="900"
-                class="w-full"
-                fetchpriority="high"
-                decoding="async"
-            />
-        </div>
-        <p class="mt-3 text-center text-sm text-muted-foreground">
-            Team dashboard · billing · onboarding — live in the demo
-        </p>
-    </div>
-</section>
-
-{{-- 3. Pain → Electrik --}}
-<section class="border-t border-border px-4 py-16 sm:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-semibold tracking-tight">Stop gluing Jetstream, Spark, and a theme together</h2>
-            <p class="mt-3 text-base text-muted-foreground">
-                Most Laravel SaaS starts as four weekends of the same setup. Electrik is the setup.
-            </p>
-        </div>
-
-        <div class="mt-10 grid gap-8 sm:grid-cols-2">
-            <div>
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Without Electrik</p>
-                <ul class="mt-4 space-y-3 border-t border-border pt-4 text-base text-muted-foreground">
-                    <li class="border-b border-border pb-3">Jetstream or Breeze auth</li>
-                    <li class="border-b border-border pb-3">Hand-roll teams / roles</li>
-                    <li class="border-b border-border pb-3">Spark or DIY Cashier</li>
-                    <li class="border-b border-border pb-3">Random admin UI</li>
-                    <li class="pb-1">Copy-paste starter repo</li>
-                </ul>
+        <div class="home-feature-art">
+            <div class="home-feature-art-bg">
+                <img
+                    src="{{ asset('images/electrik-onboarding.png') }}"
+                    alt="Electrik onboarding and teams"
+                    class="w-full"
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
-            <div>
-                <p class="text-xs font-medium uppercase tracking-wider text-foreground">With Electrik</p>
-                <ul class="mt-4 space-y-3 border-t-2 border-foreground pt-4 text-base text-foreground">
-                    <li class="border-b border-border pb-3">Auth + sessions + profile</li>
-                    <li class="border-b border-border pb-3">Team workspaces + roles</li>
-                    <li class="border-b border-border pb-3">Team Stripe customer + subscribe/webhooks</li>
-                    <li class="border-b border-border pb-3">Slate 3 components in the kit</li>
-                    <li class="pb-1"><code class="rounded bg-muted px-1.5 py-0.5 text-sm">composer require</code> — code stays in vendor</li>
-                </ul>
+            <div class="home-float-card home-float-card--a">
+                <p class="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--home-muted)] uppercase">Team</p>
+                <p class="mt-1 text-sm font-semibold text-[var(--home-ink)]">Invite · roles · switch</p>
+                <p class="mt-1 text-xs leading-relaxed text-[var(--home-muted)]">Spatie permissions, team-scoped from install.</p>
             </div>
-        </div>
-
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <x-slate::button as="a" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
-                Try the demo
-            </x-slate::button>
-            <x-slate::button as="a" variant="outline" href="{{ route('install') }}">
-                Install guide
-            </x-slate::button>
         </div>
     </div>
 </section>
 
-{{-- 4. Who is this for --}}
-<section class="border-t border-border px-4 py-12 sm:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">Who is this for?</h2>
-            <p class="mt-2 text-base text-muted-foreground">
-                Same kit either way. Pick the next step that matches how you ship.
+{{-- Feature: billing --}}
+<section class="home-section border-b border-[var(--home-line)] bg-[var(--home-soft)]">
+    <div class="home-wrap grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div class="home-feature-art lg:order-1">
+            <div class="home-feature-art-bg">
+                <img
+                    src="{{ asset('images/electrik-dashboard.png') }}"
+                    alt="Electrik dashboard with billing context"
+                    class="w-full"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+            <div class="home-float-card home-float-card--b">
+                <p class="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--home-muted)] uppercase">Billing</p>
+                <p class="mt-1 text-sm font-semibold text-[var(--home-ink)]">Cashier on the team</p>
+                <p class="mt-1 text-xs leading-relaxed text-[var(--home-muted)]">Subscribe, portal, webhooks — B2B-shaped.</p>
+            </div>
+            <div class="home-float-card home-float-card--c hidden lg:block">
+                <p class="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--home-muted)] uppercase">UI</p>
+                <p class="mt-1 text-sm font-semibold text-[var(--home-ink)]">Slate 3 shell</p>
+                <p class="mt-1 text-xs leading-relaxed text-[var(--home-muted)]">Components matched to the product, not bolted on.</p>
+            </div>
+        </div>
+        <div class="lg:order-2">
+            <p class="home-eyebrow">Billing + UI</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl">Stripe on the team. Slate in the kit.</h2>
+            <p class="home-lead mt-5">
+                The Cashier customer is the team — the shape most B2B Laravel SaaS need.
+                Screens ship on Electrik Slate 3 so auth, billing, and product UI share one system.
             </p>
-        </div>
-        <div class="mt-8 grid gap-6 sm:grid-cols-3">
-            <div class="border-t-2 border-border pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Learning or side project</p>
-                <p class="mt-2 text-base leading-relaxed text-muted-foreground">
-                    Personal, OSS, or pre-revenue indie. Covered by the $0 grant.
-                </p>
-                <a href="{{ route('install') }}" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Install free →
-                </a>
-            </div>
-            <div class="border-t-2 border-foreground pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Shipping one product</p>
-                <p class="mt-2 text-base leading-relaxed text-muted-foreground">
-                    Company or commercial product. Solo $99, one-time.
-                </p>
-                <a href="{{ route('pricing') }}#solo" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Buy Solo →
-                </a>
-            </div>
-            <div class="border-t-2 border-border pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Studio or agency</p>
-                <p class="mt-2 text-base leading-relaxed text-muted-foreground">
-                    Multiple products. Studio $149 or Agency custom.
-                </p>
-                <a href="{{ route('pricing') }}#studio" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    See Studio →
-                </a>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <x-slate::button as="a" href="{{ route('pricing') }}#solo">Buy Solo — $99</x-slate::button>
+                <x-slate::button as="a" variant="outline" href="{{ config('site.slate_url') }}" target="_blank" rel="noopener noreferrer">Slate UI</x-slate::button>
             </div>
         </div>
-        <p class="mt-8 text-center text-base text-muted-foreground">
-            Not sure yet?
-            <a href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">Click through the live demo</a>
-            first.
-        </p>
     </div>
 </section>
 
-{{-- 5. What you get --}}
-<section class="border-y border-border px-4 py-14 sm:px-6">
-    <div class="mx-auto max-w-[1400px]">
+{{-- Package purity --}}
+<section class="home-section border-b border-[var(--home-line)]">
+    <div class="home-wrap">
         <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-semibold tracking-tight">What’s in the package</h2>
-            <p class="mt-3 text-muted-foreground">
-                Full SaaS shell in Composer — not a feature-gated free tier.
+            <p class="home-eyebrow justify-center">Architecture</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl lg:text-5xl">
+                No boilerplate dump. Lean package architecture.
+            </h2>
+            <p class="home-lead mt-5">
+                Other kits clone into your app. Electrik lives in vendor.
+                Customize via config, env, and published views — not by owning hundreds of kit files forever.
             </p>
         </div>
-        <ul class="mx-auto mt-10 grid max-w-4xl gap-x-10 gap-y-0 sm:grid-cols-2">
-            @foreach (config('site.features') as $feature)
-                <li class="border-t border-border py-4 text-base leading-relaxed text-foreground">
-                    {{ $feature }}
-                </li>
+        <div class="mt-16 grid gap-6 lg:grid-cols-2">
+            <div class="home-tree rounded-2xl border border-[var(--home-line)] bg-[var(--home-soft)] p-6 sm:p-8">
+                <p class="mb-5 text-xs font-semibold tracking-[0.12em] text-[var(--home-muted)] uppercase">Typical starter dump</p>
+                <pre class="font-mono text-[13px] leading-7 text-[var(--home-muted)] whitespace-pre">app/
+├── Actions/Fortify/…
+├── Models/User.php   ← kit forever
+├── Http/…
+└── …hundreds of kit files
+
+resources/views/
+└── …auth, teams, billing copies</pre>
+            </div>
+            <div class="home-tree rounded-2xl border border-black/10 bg-white p-6 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.35)] sm:p-8">
+                <p class="mb-5 text-xs font-semibold tracking-[0.12em] text-[var(--home-ink)] uppercase">With Electrik</p>
+                <pre class="font-mono text-[13px] leading-7 text-[var(--home-ink)] whitespace-pre">app/
+├── Models/…          ← your product
+├── Http/…            ← your product
+└── …
+
+vendor/electrik/
+└── electrik/         ← auth, teams, billing
+
+composer require → electrik:install → build</pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Stack / integrations --}}
+<section class="scroll-mt-24 border-b border-[var(--home-line)] px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
+    <div class="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-2 lg:gap-24">
+        <div class="max-w-xl">
+            <p class="home-eyebrow">Stack</p>
+            <h2 class="home-display mt-6 text-3xl sm:text-4xl lg:text-[2.75rem]">Works with the Laravel tools you already use</h2>
+            <p class="home-lead mt-6">
+                Built on Laravel 12, Livewire, Cashier, Spatie Permission, and Tailwind —
+                with Electrik Slate as the UI system. Install from Packagist like any other package.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-3">
+                <x-slate::button as="a" href="{{ route('install') }}">Install guide</x-slate::button>
+                <x-slate::button as="a" variant="outline" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">View demo</x-slate::button>
+            </div>
+        </div>
+        <div class="home-integ">
+            @foreach ($stack as $item)
+                <div class="home-integ-item">
+                    <span class="home-integ-mark">{{ $item['mark'] }}</span>
+                    <span>{{ $item['name'] }}</span>
+                </div>
             @endforeach
-        </ul>
-        <p class="mt-8 text-center text-base text-muted-foreground">
-            <a href="{{ route('compare.index') }}" class="underline underline-offset-4 hover:text-foreground">Full feature notes and comparisons →</a>
-        </p>
+        </div>
     </div>
 </section>
 
-{{-- 6. How install works (proof video; copy blocks live in hero) --}}
-<section id="install-with-agents" class="scroll-mt-24 px-4 py-16 sm:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-semibold tracking-tight">Then run the installer</h2>
-            <p class="mt-3 text-muted-foreground">
-                Same path whether you paste the agent prompt or type Composer yourself.
-            </p>
-        </div>
-
-        <ol class="mx-auto mt-10 max-w-xl space-y-4 text-base text-foreground">
-            <li class="flex gap-3 border-t border-border pt-4">
-                <span class="shrink-0 font-medium text-muted-foreground">1.</span>
-                <span>Require Electrik (or let the agent run Composer)</span>
-            </li>
-            <li class="flex gap-3 border-t border-border pt-4">
-                <span class="shrink-0 font-medium text-muted-foreground">2.</span>
-                <span><code class="rounded bg-muted px-1.5 py-0.5 text-sm">php artisan electrik:install --migrate --force</code></span>
-            </li>
-            <li class="flex gap-3 border-t border-border pt-4">
-                <span class="shrink-0 font-medium text-muted-foreground">3.</span>
-                <span>Open the app — teams and billing shell ready; product code stays in <code class="rounded bg-muted px-1.5 py-0.5 text-sm">App\</code></span>
-            </li>
-        </ol>
-
-        <div class="mx-auto mt-10 max-w-3xl space-y-4">
-            <div class="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
-                <div class="aspect-video w-full">
-                    <iframe
-                        class="h-full w-full"
-                        src="https://clipy.online/embed/5rpdlm7ajzs5"
-                        title="Electrik install and Studio walkthrough"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy"
-                    ></iframe>
+{{-- Testimonial / proof quote --}}
+<section class="home-section border-b border-[var(--home-line)] home-dot-canvas">
+    <div class="home-wrap">
+        <div class="home-quote-frame grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.4fr_0.8fr] lg:items-center lg:gap-16 lg:p-16">
+            <div>
+                <p class="text-xs font-semibold tracking-[0.16em] text-[var(--home-muted)] uppercase">{{ $studioName }}</p>
+                <blockquote class="mt-6 text-2xl leading-snug font-semibold tracking-tight text-[var(--home-ink)] sm:text-3xl lg:text-[2rem] lg:leading-[1.25]">
+                    “We don’t reinvent auth, teams, and billing for each client.
+                    <span class="home-mark">Every Laravel SaaS we ship runs on Electrik</span>
+                    — package in vendor, product in App\.”
+                </blockquote>
+                <p class="mt-8 text-sm text-[var(--home-ink)]">
+                    <span class="font-semibold">{{ $studioName }}</span>
+                    <span class="text-[var(--home-muted)]"> · Studio that builds Electrik — and ships client work on it</span>
+                </p>
+            </div>
+            <div class="flex h-full min-h-48 items-center justify-center rounded-xl bg-[var(--home-soft)] p-10">
+                <div class="text-center">
+                    <img src="{{ asset('images/electrik-mark.svg') }}" alt="" class="mx-auto h-14 w-14 opacity-90" />
+                    <p class="mt-4 font-display text-xl font-semibold tracking-tight">Electrik</p>
+                    <p class="mt-1 text-sm text-[var(--home-muted)]">Production shell</p>
                 </div>
             </div>
-            <div class="flex flex-wrap items-center justify-center gap-3">
-                <x-slate::button as="a" href="{{ route('install') }}">
-                    Full install guide
-                </x-slate::button>
-                <a
-                    href="https://clipy.online/video/oak9rgmez5yf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-base text-muted-foreground underline underline-offset-4 hover:text-foreground"
-                >
-                    47s terminal clip
-                </a>
-            </div>
         </div>
+
+        @if (! empty($ph['body']))
+            <div class="mx-auto mt-12 max-w-3xl border-t border-[var(--home-line)] pt-10">
+                <p class="text-lg leading-relaxed text-[var(--home-ink)]">
+                    “{{ $ph['body'] }}”
+                </p>
+                <p class="mt-4 text-sm text-[var(--home-muted)]">
+                    {{ $ph['author'] ?? 'Founder' }}
+                    @if (! empty($ph['role'])) · {{ $ph['role'] }} @endif
+                    ·
+                    <a href="{{ config('product-hunt.reviews_url') }}" class="underline underline-offset-4" target="_blank" rel="noopener noreferrer">Product Hunt</a>
+                </p>
+            </div>
+        @endif
     </div>
 </section>
 
-{{-- 7. Pricing lanes --}}
-<section class="border-t border-border bg-muted/20 px-4 py-16 sm:px-6">
-    <div class="mx-auto max-w-4xl">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-2xl font-semibold tracking-tight">One feature surface. Two license lanes.</h2>
-            <p class="mt-3 text-muted-foreground">
-                We do not strip billing or teams from a free tier. The grant covers personal, educational, open-source, and pre-revenue indie use.
-                Companies and client work need a commercial license. Same codebase either way.
-            </p>
-        </div>
-
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div class="border-t-2 border-border pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Grant</p>
-                <p class="mt-2 text-3xl font-bold tracking-tight">$0</p>
-                <p class="mt-2 text-base text-muted-foreground">Indie, school, OSS, pre-revenue</p>
-                <a href="{{ route('install') }}" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Install →
-                </a>
-            </div>
-            <div class="border-t-2 border-foreground pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Solo</p>
-                <p class="mt-2 text-3xl font-bold tracking-tight">$99</p>
-                <p class="mt-2 text-base text-muted-foreground">One commercial product, one-time</p>
-                <a href="{{ route('pricing') }}#solo" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Buy on Pricing →
-                </a>
-            </div>
-            <div class="border-t-2 border-border pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Studio</p>
-                <p class="mt-2 text-3xl font-bold tracking-tight">$149</p>
-                <p class="mt-2 text-base text-muted-foreground">Unlimited projects, one-time</p>
-                <a href="{{ route('pricing') }}#studio" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Buy on Pricing →
-                </a>
-            </div>
-            <div class="border-t-2 border-border pt-5">
-                <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Agency</p>
-                <p class="mt-2 text-3xl font-bold tracking-tight">Custom</p>
-                <p class="mt-2 text-base text-muted-foreground">Org / white-label needs</p>
-                <a href="{{ route('contact') }}" class="mt-4 inline-flex text-base font-medium text-foreground underline underline-offset-4 hover:no-underline">
-                    Contact →
-                </a>
-            </div>
-        </div>
-
-        <div class="mt-10 text-center">
-            <x-slate::button as="a" href="{{ route('pricing') }}">Commercial pricing from $99</x-slate::button>
-            <p class="mx-auto mt-4 max-w-lg text-sm text-muted-foreground">
-                Same install either way. License email after payment — we don’t unlock a secret Pro build.
-            </p>
-        </div>
-    </div>
-</section>
-
-{{-- 8. Trust / stack --}}
-<section class="border-t border-border px-4 py-16 sm:px-6">
-    <div class="mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-2">
+{{-- Install --}}
+<section id="install" class="home-section scroll-mt-24 border-b border-[var(--home-line)]">
+    <div class="home-wrap grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <div>
-            <h2 class="text-2xl font-semibold tracking-tight">Built on tools you already use</h2>
-            <p class="mt-3 text-muted-foreground">
-                Laravel 12, Livewire 4, Tailwind CSS v4, Cashier, Spatie Permission, and Electrik Slate 3.
-                Code stays in <code class="rounded bg-muted px-1.5 py-0.5 text-sm">vendor/Electrik</code>, not copied into your app on install.
+            <p class="home-eyebrow">Install</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl">Require. Install. Open the app.</h2>
+            <p class="home-lead mt-5">
+                Hours of glue become a package and an installer. Wire Stripe keys, then build product.
             </p>
-            <ul class="mt-6 space-y-2 text-base text-foreground">
-                <li class="flex items-start gap-2"><span class="text-muted-foreground">•</span> Team-scoped roles and Stripe customer on the team</li>
-                <li class="flex items-start gap-2"><span class="text-muted-foreground">•</span> Working subscribe flow, webhooks, and plan sync</li>
-                <li class="flex items-start gap-2"><span class="text-muted-foreground">•</span> Onboarding wizard, notifications, activity log, 2FA</li>
-            </ul>
-            <p class="mt-8 text-sm text-muted-foreground">
-                Also:
-                <a href="{{ config('site.slate_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">Slate UI</a>
-                <span class="mx-2 text-border" aria-hidden="true">·</span>
-                <a href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">Demo</a>
-                <span class="mx-2 text-border" aria-hidden="true">·</span>
-                <a href="{{ url('/docs') }}" class="underline underline-offset-4 hover:text-foreground">Docs</a>
-                <span class="mx-2 text-border" aria-hidden="true">·</span>
-                <a href="{{ url('/license') }}" class="underline underline-offset-4 hover:text-foreground">License</a>
-                <span class="mx-2 text-border" aria-hidden="true">·</span>
-                <a href="{{ config('site.github_url') }}" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-foreground">GitHub</a>
-            </p>
+            <ol class="mt-10 space-y-0 text-sm text-[var(--home-ink)]">
+                <li class="flex gap-4 border-b border-[var(--home-line)] py-4">
+                    <span class="font-mono text-[var(--home-muted)]">1</span>
+                    <code class="rounded bg-black/5 px-1.5 py-0.5 font-mono text-xs">composer require electrik/electrik</code>
+                </li>
+                <li class="flex gap-4 border-b border-[var(--home-line)] py-4">
+                    <span class="font-mono text-[var(--home-muted)]">2</span>
+                    <code class="rounded bg-black/5 px-1.5 py-0.5 font-mono text-xs">php artisan electrik:install --migrate --force</code>
+                </li>
+                <li class="flex gap-4 border-b border-[var(--home-line)] py-4">
+                    <span class="font-mono text-[var(--home-muted)]">3</span>
+                    <span>Onboarding → team dashboard</span>
+                </li>
+            </ol>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <x-slate::button as="a" href="{{ route('install') }}">Full install guide</x-slate::button>
+                <x-slate::button as="a" variant="outline" href="https://clipy.online/video/5rpdlm7ajzs5" target="_blank" rel="noopener noreferrer">
+                    Watch install
+                </x-slate::button>
+            </div>
         </div>
-        <div class="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
-            <img
-                src="{{ asset('images/electrik-onboarding.png') }}"
-                alt="Electrik onboarding wizard to create a team"
-                width="1600"
-                height="900"
-                class="w-full"
-                loading="lazy"
-                decoding="async"
-            />
+        <div class="home-stage-frame overflow-hidden">
+            <div class="aspect-video w-full bg-black">
+                <iframe
+                    class="h-full w-full"
+                    src="https://clipy.online/embed/5rpdlm7ajzs5"
+                    title="Electrik install walkthrough"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                ></iframe>
+            </div>
         </div>
     </div>
 </section>
 
-{{-- 9. Compare --}}
-<section class="border-t border-border px-4 py-16 sm:px-6">
-    <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-2xl font-semibold tracking-tight">Electrik vs Jetstream, Spark, and peers</h2>
-        <p class="mt-3 text-muted-foreground">
-            Honest matrices: package vs scaffold, team billing, UI kit, and when the other product is the better fit.
+{{-- Big pricing --}}
+<section id="pricing" class="home-section border-b border-[var(--home-line)] home-dot-canvas">
+    <div class="home-wrap">
+        <div class="mx-auto max-w-2xl text-center">
+            <p class="home-eyebrow justify-center">Pricing</p>
+            <h2 class="home-display mt-5 text-3xl sm:text-4xl lg:text-5xl">
+                One feature surface. Honest licenses.
+            </h2>
+            <p class="home-lead mt-5">
+                Full features in source either way. Buy commercial rights when a company owns the app —
+                not a secret Pro unlock.
+            </p>
+        </div>
+
+        <div class="home-price-band mx-auto mt-14 max-w-3xl text-center">
+            <p class="text-sm font-semibold text-[var(--home-ink)]">Solo — one commercial product</p>
+            <p class="home-price-num mt-4">$99</p>
+            <p class="home-price-meta">One-time · current major (5.x) + minors</p>
+            <p class="mx-auto mt-5 max-w-md text-sm leading-relaxed text-[var(--home-muted)]">
+                The license most buyers need. Same install as the grant. License email after payment.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <x-slate::button as="a" size="lg" href="{{ route('pricing') }}#solo">Buy Solo</x-slate::button>
+                <x-slate::button as="a" variant="outline" size="lg" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
+                    Try demo first
+                </x-slate::button>
+            </div>
+            <p class="mt-8 border-t border-black/10 pt-6 text-sm text-[var(--home-muted)]">
+                Need unlimited projects?
+                <a href="{{ route('pricing') }}#studio" class="font-medium text-[var(--home-ink)] underline underline-offset-4">Studio $149</a>
+                · Agency custom.
+            </p>
+        </div>
+
+        <div class="home-price-lanes mx-auto max-w-4xl">
+            <div class="home-price-lane">
+                <p class="text-sm font-semibold text-[var(--home-ink)]">Grant · $0</p>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--home-muted)]">Personal, OSS, school, pre-revenue. Full features.</p>
+                <a href="{{ route('install') }}" class="mt-4 inline-block text-sm font-medium underline underline-offset-4">Install free</a>
+            </div>
+            <div class="home-price-lane">
+                <p class="text-sm font-semibold text-[var(--home-ink)]">Studio · $149</p>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--home-muted)]">Unlimited commercial projects. Priority support.</p>
+                <a href="{{ route('pricing') }}#studio" class="mt-4 inline-block text-sm font-medium underline underline-offset-4">Buy Studio</a>
+            </div>
+            <div class="home-price-lane">
+                <p class="text-sm font-semibold text-[var(--home-ink)]">Agency · Custom</p>
+                <p class="mt-2 text-sm leading-relaxed text-[var(--home-muted)]">Org-wide rights, white-label, volume.</p>
+                <a href="{{ route('contact') }}" class="mt-4 inline-block text-sm font-medium underline underline-offset-4">Contact</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Compare --}}
+<section class="home-section border-b border-[var(--home-line)]">
+    <div class="home-wrap max-w-3xl text-center">
+        <h2 class="home-display text-3xl sm:text-4xl">Evaluating Jetstream or Spark?</h2>
+        <p class="home-lead mt-5">
+            Honest matrices on compare pages — when Electrik fits, and when the other product is better.
         </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <x-slate::button as="a" href="{{ route('compare.show', ['slug' => 'jetstream']) }}">vs Jetstream</x-slate::button>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <x-slate::button as="a" variant="outline" href="{{ route('compare.show', ['slug' => 'jetstream']) }}">vs Jetstream</x-slate::button>
             <x-slate::button as="a" variant="outline" href="{{ route('compare.show', ['slug' => 'spark']) }}">vs Spark</x-slate::button>
             <x-slate::button as="a" variant="ghost" href="{{ route('compare.index') }}">All comparisons</x-slate::button>
         </div>
     </div>
 </section>
 
-<x-product-hunt-review />
-
-<x-newsletter-subscribe />
-
-{{-- 10. FAQ --}}
-<x-slate-block::faq
-    title="Common questions"
-    :items="\App\Support\Seo::homepageFaqs()"
-    :footer-href="route('faq')"
-    footer-label="All FAQs"
-/>
-
-{{-- 11. Final product CTA --}}
-<section class="border-t border-border px-4 py-16 sm:px-6">
-    <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-semibold tracking-tight">Ready to try Electrik?</h2>
-        <p class="mt-3 text-muted-foreground">
-            Demo for “is this real?” · Install for “I’ll try it” · Pricing for “I’ll pay.”
-        </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <x-slate::button as="a" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
-                Try the demo
-            </x-slate::button>
-            <x-slate::button as="a" variant="outline" href="{{ route('pricing') }}">
-                Pricing
-            </x-slate::button>
+{{-- FAQ --}}
+<section class="home-section border-b border-[var(--home-line)] bg-[var(--home-soft)]">
+    <div class="home-wrap max-w-3xl">
+        <div class="text-center">
+            <h2 class="home-display text-3xl sm:text-4xl">Common questions</h2>
+            <p class="home-lead mt-4">Grant vs commercial, vendor customization, Solo vs Studio.</p>
         </div>
-        <p class="mt-5 text-base text-muted-foreground">
-            <a href="{{ route('install') }}" class="underline underline-offset-4 hover:text-foreground">Install guide</a>
+        <div class="mt-12 space-y-0">
+            @foreach (\App\Support\Seo::homepageFaqs() as $item)
+                <details class="group border-b border-[var(--home-line)] py-5">
+                    <summary class="cursor-pointer list-none text-left text-base font-semibold text-[var(--home-ink)] marker:content-none [&::-webkit-details-marker]:hidden">
+                        <span class="flex items-start justify-between gap-4">
+                            {{ $item['question'] }}
+                            <span class="text-[var(--home-muted)] transition group-open:rotate-45">+</span>
+                        </span>
+                    </summary>
+                    <p class="mt-3 pr-8 text-sm leading-relaxed text-[var(--home-muted)]">{{ $item['answer'] }}</p>
+                </details>
+            @endforeach
+        </div>
+        <p class="mt-8 text-center text-sm">
+            <a href="{{ route('faq') }}" class="underline underline-offset-4 text-[var(--home-muted)] hover:text-[var(--home-ink)]">All FAQs</a>
         </p>
     </div>
 </section>
 
-{{-- 12. Studio hire (secondary) --}}
-<section class="border-t border-border bg-muted/20 px-4 py-12 sm:px-6">
-    <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-lg font-semibold tracking-tight">Need a team to build on this stack?</h2>
-        <p class="mt-2 text-base text-muted-foreground">
-            Electrik is built by {{ config('site.studio.name') }}, a Laravel product studio.
-            If you have a SaaS or Laravel project and want a team that already ships this stack, get in touch.
+{{-- Close --}}
+<section class="home-section">
+    <div class="home-wrap max-w-2xl text-center">
+        <h2 class="home-display text-3xl sm:text-4xl lg:text-5xl">Try the demo. Buy when you ship.</h2>
+        <p class="home-lead mt-5">
+            Click through the live product, install on the grant, or buy Solo when a company owns the app.
         </p>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <x-slate::button as="a" variant="outline" href="{{ route('contact') }}">
-                Get in touch
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <x-slate::button as="a" size="lg" href="{{ config('site.demo_url') }}" target="_blank" rel="noopener noreferrer">
+                Open demo
             </x-slate::button>
-            <a
-                href="mailto:{{ config('site.studio.email') }}?subject=Project%20inquiry"
-                class="text-base text-muted-foreground underline underline-offset-4 hover:text-foreground"
-            >
-                Email us
-            </a>
+            <x-slate::button as="a" variant="outline" size="lg" href="{{ route('pricing') }}#solo">
+                Buy Solo — $99
+            </x-slate::button>
         </div>
+        <p class="mt-14 text-sm text-[var(--home-muted)]">
+            Need a team to build on this stack?
+            <a href="{{ route('contact') }}" class="text-[var(--home-ink)] underline underline-offset-4">{{ $studioName }}</a>
+        </p>
     </div>
 </section>
 @endsection

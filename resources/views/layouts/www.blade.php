@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-background">
+<html
+    lang="en"
+    class="h-full"
+    data-theme-lock="light"
+>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +35,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Syne:wght@500..800&family=Geist+Mono:wght@100..900&display=swap">
 
     <x-theme-init />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -43,7 +47,7 @@
     @yield('head')
 </head>
 
-<body class="min-h-full font-sans antialiased text-foreground bg-background">
+<body class="site-premium min-h-full font-sans antialiased @yield('bodyClass')">
 
     <div class="flex min-h-screen flex-col" x-data="{ sidebarOpen: false }">
         <x-site-navbar />

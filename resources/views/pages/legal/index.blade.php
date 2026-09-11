@@ -15,10 +15,11 @@
 @endphp
 
 @section('content')
-<section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+<section class="site-page site-page--wide">
     <div class="mx-auto max-w-2xl text-center">
-        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Legal documents and policies</h1>
-        <p class="mt-3 text-muted-foreground">
+        <p class="home-eyebrow justify-center">Legal</p>
+        <h1 class="site-page-title mt-5">Legal documents and policies</h1>
+        <p class="site-page-lead">
             Policies for electrik.dev, the Electrik starter kit, and related community resources.
         </p>
     </div>

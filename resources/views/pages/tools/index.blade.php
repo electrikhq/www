@@ -24,20 +24,22 @@
 @endphp
 
 @section('content')
-<section class="px-4 pb-20 pt-14 sm:px-6 sm:pt-20">
+<section class="home-dot-canvas border-b border-[var(--home-line)] px-4 pb-14 pt-16 sm:px-6 sm:pb-16 sm:pt-20">
     <div class="mx-auto max-w-3xl">
-        <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Free tools</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Tools for Laravel builders</h1>
-        <p class="mt-4 text-lg text-muted-foreground text-pretty">
+        <p class="home-eyebrow">Free tools</p>
+        <h1 class="site-page-title mt-5">Tools for Laravel builders</h1>
+        <p class="site-page-lead">
             Practical utilities we use while shipping Electrik and Slate — no account required.
         </p>
     </div>
+</section>
 
-    <div class="mx-auto mt-12 grid max-w-[1400px] gap-4 sm:grid-cols-2">
+<section class="px-4 py-14 sm:px-6 sm:py-16">
+    <div class="mx-auto grid max-w-[1400px] gap-6 sm:grid-cols-2">
         @foreach ($tools as $tool)
             <a
                 href="{{ $tool['href'] }}"
-                class="group block border-t-2 border-border pt-6 transition hover:border-foreground"
+                class="group block border-t border-[var(--home-line)] pt-6 transition hover:border-[var(--home-ink)]"
             >
                 <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">{{ $tool['meta'] }}</p>
                 <h2 class="mt-2 text-xl font-semibold tracking-tight group-hover:underline group-hover:underline-offset-4">{{ $tool['title'] }}</h2>

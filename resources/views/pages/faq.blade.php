@@ -89,19 +89,20 @@
 @endphp
 
 @section('content')
-<section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Frequently asked questions</h1>
-    <p class="mt-3 text-muted-foreground">Electrik 5.x, licensing, install, and billing.</p>
+<section class="site-page">
+    <p class="home-eyebrow">FAQ</p>
+    <h1 class="site-page-title mt-5">Frequently asked questions</h1>
+    <p class="site-page-lead">Electrik 5.x, licensing, install, and billing.</p>
 
-    <div class="mt-12 space-y-12">
+    <div class="mt-14 space-y-14">
         @foreach ($faqs as $group)
             <div>
-                <h2 class="text-lg font-semibold text-foreground">{{ $group['section'] }}</h2>
-                <div class="mt-6 space-y-8">
+                <h2 class="text-sm font-semibold tracking-[0.12em] text-[var(--home-muted)] uppercase">{{ $group['section'] }}</h2>
+                <div class="mt-6 space-y-0">
                     @foreach ($group['items'] as $item)
-                        <div>
-                            <h3 class="text-base font-medium text-foreground">{{ $item['question'] }}</h3>
-                            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ $item['answer'] }}</p>
+                        <div class="border-b border-[var(--home-line)] py-6">
+                            <h3 class="text-base font-semibold text-[var(--home-ink)]">{{ $item['question'] }}</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-[var(--home-muted)]">{{ $item['answer'] }}</p>
                         </div>
                     @endforeach
                 </div>

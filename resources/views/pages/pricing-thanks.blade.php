@@ -14,21 +14,21 @@
 
 @section('content')
 <section
-    class="mx-auto max-w-2xl px-4 py-20 sm:px-6 text-center"
+    class="site-page text-center"
     @if ($paymentId)
         x-data="commerceThanks(@js($paymentId))"
         x-init="poll()"
     @endif
 >
-    <p class="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">Checkout</p>
-    <h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+    <p class="home-eyebrow justify-center">Checkout</p>
+    <h1 class="site-page-title mt-5">
         @if ($tierName)
             Thanks — {{ $tierName }} is almost yours
         @else
             Thanks for purchasing Electrik
         @endif
     </h1>
-    <p class="mt-4 text-muted-foreground text-pretty">
+    <p class="site-page-lead">
         @if ($paymentId)
             Payment confirmed by Dodo. We’ll email your commercial license details to the address used at checkout.
         @else
@@ -36,7 +36,7 @@
             Opening this page without a payment id does not record a purchase.
         @endif
         Questions?
-        <a class="text-foreground underline underline-offset-4" href="mailto:{{ config('site.commercial_email') }}">{{ config('site.commercial_email') }}</a>
+        <a class="text-[var(--home-ink)] underline underline-offset-4" href="mailto:{{ config('site.commercial_email') }}">{{ config('site.commercial_email') }}</a>
     </p>
 
     @if ($paymentId)

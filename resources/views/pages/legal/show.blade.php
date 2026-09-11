@@ -16,12 +16,12 @@
 @endphp
 
 @section('content')
-<section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+<section class="site-page site-page--wide">
     <div class="mx-auto grid max-w-4xl gap-10 lg:grid-cols-[12rem_minmax(0,1fr)]">
         <aside class="hidden lg:block">
-            <p class="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">Legal</p>
+            <p class="home-eyebrow mb-4">Legal</p>
             <nav class="space-y-1 text-sm">
-                <a href="{{ route('legal.index') }}" class="block text-muted-foreground hover:text-foreground">All documents</a>
+                <a href="{{ route('legal.index') }}" class="block text-[var(--home-muted)] hover:text-[var(--home-ink)]">All documents</a>
                 @foreach ($siblings as $item)
                     <a
                         href="{{ $item['url'] }}"
